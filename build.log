@@ -1,0 +1,46 @@
+Logfile initialized
+[INFO] logfile = D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build.log
+[DEBUG] C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\builder.py simulator goRoamPOD D:\Nidhi_Gupta\Setup\android-sdk-windows D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD com.goroampod.app 1 HVGA
+[INFO] Building goRoamPOD for Android ... one moment
+[DEBUG] D:\Nidhi_Gupta\Setup\android-sdk-windows\tools\emulator.exe -avd titanium_1_HVGA -port 5560 -sdcard "C:\Documents and Settings\nidhigupta\.titanium\titanium_1_HVGA.sdcard" -logcat *:d,*,TiAPI:V -no-boot-anim -partition-size 128
+[INFO] Android Emulator has exited
+[INFO] Titanium SDK version: 2.1.0 (06/28/12 12:16 6e3cab6)
+[DEBUG] Waiting for device to be ready ...
+[TRACE] adb devices returned 0 devices/emulators
+[TRACE] adb devices returned 0 devices/emulators
+[TRACE] adb devices returned 0 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 65 seconds)
+[DEBUG] waited 74.765000 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
+[DEBUG] com.goroampod.app installed? True
+[INFO] Fastdev server running, deploying in Fastdev mode
+[INFO] Copying CommonJS modules...
+[INFO] Copying project resources..
+[INFO] Tiapp.xml unchanged, skipping class generation
+[DEBUG] Processing Android resource drawables
+[DEBUG] found drawable-long-land-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-hdpi\default.png
+[DEBUG] found drawable-long-land-ldpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-ldpi\default.png
+[DEBUG] found drawable-long-port-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-port-hdpi\default.png
+[DEBUG] found drawable-long-port-ldpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-port-ldpi\default.png
+[DEBUG] found drawable-notlong-land-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-hdpi\default.png
+[DEBUG] found drawable-notlong-land-ldpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-ldpi\default.png
+[DEBUG] found drawable-notlong-land-mdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-mdpi\default.png
+[DEBUG] found drawable-notlong-port-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-hdpi\default.png
+[DEBUG] found drawable-notlong-port-ldpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-ldpi\default.png
+[DEBUG] found drawable-notlong-port-mdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-mdpi\default.png
+[INFO] Waiting for SDCard to become available..
+[INFO] Re-launching application ... goRoamPOD
+[INFO] Launching application ... goRoamPOD
+[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.goroampod.app/.GoroampodActivity }
+
