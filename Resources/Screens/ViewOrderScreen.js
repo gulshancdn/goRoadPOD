@@ -2,6 +2,9 @@ Titanium.include('Constants.js');
 
 var viewOrderWindow = Ti.UI.currentWindow;
 
+//var ddata = viewOrderWindow.data;
+//alert(ddata);
+
 var viewOrderHeading = Titanium.UI.createView({
 	top : 0,
 	height : headingHeight,

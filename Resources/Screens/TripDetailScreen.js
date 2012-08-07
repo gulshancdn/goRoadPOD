@@ -29,7 +29,7 @@ var buttonBacktripDetail = Titanium.UI.createButton({
 	font : {
 		fontSize : 15
 	},
-//	style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+	//	style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
 });
 
 buttonBacktripDetail.addEventListener('click', function(e) {
@@ -56,26 +56,12 @@ tripDetailHeading.add(headingtripDetail);
 
 var datas = [];
 var number = 0;
-for (var i = 0; i < 15; i++) {
+var returnData = tripDetailWindow.data;
+var orderArray = returnData.d.messageData.trip.order;
+var arrayLength = orderArray.length;
 
-	/*var tripDetailView = Titanium.UI.createView({
-		width : 'auto',
-		height : 100,
-		layout : 'horizontal',
-		top : 0,
-		borderColor : 'black',
-		borderWidth : 1,
-		backgroundColor : 'white'
-	});*/
+for (var i = 0; i < arrayLength; i++) {
 
-	/*var icon = Titanium.UI.createImageView({
-		image : '/images/titanium_logo.png',
-		height : 50,
-		width : 50,
-		left : 20,
-		top : 25
-	});*/
-	
 	var tripDetailVerticalView = Titanium.UI.createView({
 		height : 100,
 		layout : 'vertical',
@@ -87,30 +73,42 @@ for (var i = 0; i < 15; i++) {
 		top : 0,
 		height : 25,
 		left : 0,
-		text : 'Order:1234',
+		text : 'Order: ' + orderArray[i].orderNo,
 		color : 'black'
 	});
 	var companyLabel = Titanium.UI.createLabel({
 		top : 0,
 		height : 25,
 		left : 0,
-		text : 'Company:ABC',
+		text : orderArray[i].custName,
 		color : 'black'
 	});
 	var addressLabel = Titanium.UI.createLabel({
 		top : 0,
 		height : 25,
 		left : 0,
-		text : 'Address:Main Street',
+		text : orderArray[i].addr1,
 		color : 'black'
 	});
+	var eta = orderArray[i].eta;
+	var subEta = eta.substring(6, eta.length - 2);
+	var d = new Date(parseInt(subEta));
+	var hours = d.getHours();
+	var minutes = d.getMinutes();
+	//var seconds = d.getSeconds();
+	var str = "AM";
+	if (hours > 12) {
+		hours = hours - 12;
+		str = "PM";
+	}
+	var time = hours + ":" + minutes+ " " + str;
+	//alert(time);
 	var timeLabel = Titanium.UI.createLabel({
 		top : 0,
 		height : 25,
 		left : 0,
-		text : 'Time:9:55 AM',
-		color : 'black',
-	//	textAlign : 'center',
+		text : 'ETA: ' + time,
+		color : 'black'
 	});
 
 	tripDetailVerticalView.add(orderLabel);
@@ -118,56 +116,37 @@ for (var i = 0; i < 15; i++) {
 	tripDetailVerticalView.add(addressLabel);
 	tripDetailVerticalView.add(timeLabel);
 
-	/*var arrowIcon = Titanium.UI.createImageView({
-		//image : '/images/arrow.png',
-		image : '/images/expander_ic_minimized.png',
-		height : 50,
-		width : 50,
-		top : 25
-	});*/
-
-//	tripDetailView.add(icon);
-//	tripDetailView.add(tripDetailVerticalView);
-	//tripDetailView.add(arrowIcon);
-
-	
-
 	datas[i] = Ti.UI.createTableViewRow({
 		selectedBackgroundColor : 'transparent',
 		className : i,
-	//	hasDetail : true,
+		//	hasDetail : true,
 		leftImage : '/images/titanium_logo.png',
-		rightImage :'/images/expander_ic_minimized.png'
+		rightImage : '/images/expander_ic_minimized.png'
 	});
 	datas[i].add(tripDetailVerticalView)
-	
+
 	datas[i].addEventListener('click', function(e) {
 		var viewOrderWindow = Titanium.UI.createWindow({
 			backgroundColor : 'white',
 			width : deviceWidth,
 			url : 'ViewOrderScreen.js',
-			orientationModes : [1]
+			orientationModes : [1],
+	//		data : returnData
 		});
 
 		viewOrderWindow.open();
 	});
-
-//	tripDetailScrollView.add(tripDetailView);
-//	number += 100;
 }
 
 //tripDetailScrollView.add(tripDetailHeading);
 
-
 var tripDetailTable = Ti.UI.createTableView({
 	data : datas,
-//	height : 100,
+	//	height : 100,
 	top : headingHeight,
 	width : deviceWidth
 });
 
-//tripDetailScrollView.add(tripDetailTable);
 
 tripDetailWindow.add(tripDetailHeading);
-//tripDetailWindow.add(tripDetailScrollView);
 tripDetailWindow.add(tripDetailTable);

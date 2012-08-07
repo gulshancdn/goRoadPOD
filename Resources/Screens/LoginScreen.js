@@ -174,6 +174,7 @@ loginButton.addEventListener('click', function(e) {
 		Ti.App.Properties.setString("UserName",params[1]);
 		Ti.App.Properties.setString("Password",params[2]);
 		Ti.App.Properties.setBool("AutoLogin",autoLoginCB.value);
+	//	parameters = params;
 		doAction(ACTION_LOGIN, params);
 	}
 });

@@ -1,36 +1,100 @@
 Titanium.include('/Screens/Constants.js');
+Titanium.include('/util/jsonSerializable.js');
 
 var LOGIN_CON = 1;
-var DOMAIN_URL = 'http://ss2.test.bizspeed.com/SS2.MobileHub/SyncMobileSuiteJSON.asmx';
+var GET_LIST_TRIP = 2;
+var _START_TRIP = 3;
 
-function getConnection(url, request, showInd) {
+var DOMAIN_URL = 'http://ss2.test.bizspeed.com/syncmobilesuitejson.asmx';
+
+function getConnection(url, request, showInd, context) {
 	if (showInd) {
 		activityInd.show();
 	}
 	var client = Ti.Network.createHTTPClient();
 	client.timeout = 3000;
 	client.onload = function() {
-		var response = JSON.parse(this.responseText);
-		alert('Response ' + response);
-		callback(this.responseText, this.status);
+		callback(this.responseText, this.status, context, true);
 	};
 	client.onerror = function() {
-		alert('Error Status =' + this.status + 'Response =' + this.responseText);
-	};
-	if (showInd) {
+		alert('Error Status =' + this.status + ' Response =' + this.responseText);
 		activityInd.hide();
-	}
-	url = url +"/BrokerMessageJSON";
+	};
+	/*if (showInd) {
+		activityInd.hide();
+	}*/
+	url = url + "/BrokerMessageJSON";
 	client.open('POST', url);
 	client.setRequestHeader('Content-Type', 'application/json');
 	client.send(request);
-
-//	var httpResponse = client.getResponseText;
-//	alert('Response ' + httpResponse);
 }
 
-function doLogin() {
+function doLogin(params) {
 	var url = DOMAIN_URL;
-	var request = "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:urn=\"urn:soapservice\"><soapenv:Header/><soapenv:Body><urn:getNearbySight soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><urn:username xsi:type=\"xsd:string\" xs:type=\"type:string\" xmlns:xs=\"http://www.w3.org/2000/XMLSchema-instance\">feeditch</urn:username><urn:password xsi:type=\"xsd:string\" xs:type=\"type:string\" xmlns:xs=\"http://www.w3.org/2000/XMLSchema-instance\">cdn123</urn:password><urn:user_id xsi:type=\"xsd:string\" xs:type=\"type:string\" xmlns:xs=\"http://www.w3.org/2000/XMLSchema-instance\">189</urn:user_id><urn:latitude xsi:type=\"xsd:string\" xs:type=\"type:string\" xmlns:xs=\"http://www.w3.org/2000/XMLSchema-instance\">22.725808</urn:latitude><urn:longitude xsi:type=\"xsd:string\" xs:type=\"type:string\" xmlns:xs=\"http://www.w3.org/2000/XMLSchema-instance\">75.887210</urn:longitude></urn:getNearbySight></soapenv:Body></soapenv:Envelope>";
-	get(url, request, true);
+	
+	var opcode = 'AuthenticateUser'
+	var module = 'SS2.MobileHub.SyncMobileSuiteJSON';
+	var a = new Object();
+	a["InParam1"] = "";
+
+	var request = getJSONString(opcode, a, module, params);
+//	alert(request);
+	getConnection(url, request, true, LOGIN_CON);
 }
+
+function getListOfTrips(params){
+	var vehicleId = params[0];
+	var tripDate = params[1];
+	var url = DOMAIN_URL;
+	var opcode = 'ListTrips';
+	var module = 'SS2.MobileHub.Classes.SyncMobileHelpers.PODData';
+	var a = new Object();
+	a["vehicleId"] = vehicleId;
+	a["tripDate"] = tripDate;
+	var param = new Array();
+	param[0] = Ti.App.Properties.getString("CompanyCode");
+	param[1] = Ti.App.Properties.getString("UserName");
+	param[2] = Ti.App.Properties.getString("Password");
+	
+	var request = getJSONString(opcode, a, module, param);
+	getConnection(url, request, true, GET_LIST_TRIP);
+}
+
+function startTrip(params){
+	var tripRefId = params[0];
+	var vehicleId = params[1];
+	var odometer = params[2];
+	var notes = params[3];
+	
+	var url = DOMAIN_URL;
+	var opcode = 'StartTrip';
+	var module = 'SS2.MobileHub.Classes.SyncMobileHelpers.PODData';
+	var a = new Object();
+	a["tripRefId"] = tripRefId;
+	a["vehicleId"] = vehicleId;
+	a["odometer"] = odometer;
+	a["notes"] = notes;
+	
+	var param = new Array();
+	param[0] = Ti.App.Properties.getString("CompanyCode");
+	param[1] = Ti.App.Properties.getString("UserName");
+	param[2] = Ti.App.Properties.getString("Password");
+	
+	var request = getJSONString(opcode, a, module, param);
+	getConnection(url, request, true, _START_TRIP);
+}
+
+function callback(response, statusCode, context, showInd) {
+	switch(context) {
+		case LOGIN_CON:
+			loginCallback(response, statusCode, showInd);
+			break;
+		case GET_LIST_TRIP:
+			listTripsCallback(response, statusCode, showInd);
+			break;
+		case _START_TRIP:
+			startTripCallback(response, statusCode, showInd);
+			break;
+	}
+}
+

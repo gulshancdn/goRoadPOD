@@ -1,4 +1,5 @@
 Titanium.include('/controller/Controller.js');
+Titanium.include('/Screens/Constants.js')
 
 var w = Titanium.UI.createWindow({
     url:'Screens/LoginScreen.js',
@@ -21,7 +22,7 @@ if (companyCodeLocalStorage != '' && userNameLocalStorage != '' && passwordLocal
 		params[0] = companyCodeLocalStorage;
 		params[1] = userNameLocalStorage;
 		params[2] = passwordLocalStorage;
-		
+	//	parameters = params;
 		doAction(ACTION_LOGIN, params);
 	}else{
 		// To open Login window

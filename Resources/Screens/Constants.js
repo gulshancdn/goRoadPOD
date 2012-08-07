@@ -1,6 +1,9 @@
 var deviceWidth = Titanium.Platform.displayCaps.platformWidth;
 var deviceHeight = Titanium.Platform.displayCaps.platformHeight;
 var platform = Ti.Platform.name;
+//var parameters = new Array();
+var dataOfListTripForStartScreen = new Array();
+
 if(platform == 'android')
 {
 	headingHeight = 50;

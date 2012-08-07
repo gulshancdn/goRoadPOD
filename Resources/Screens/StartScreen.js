@@ -1,8 +1,12 @@
 Titanium.include('Constants.js');
+Titanium.include('/controller/Controller.js');
 
 var startWindow = Ti.UI.currentWindow;
 
 var selectedTrip = '';
+var changeDate = new Date();
+var changeTime = new Date();
+var currentDate = new Date();
 
 var startViewHeading = Titanium.UI.createView({
 	top : 0,
@@ -17,7 +21,7 @@ var startViewHeading = Titanium.UI.createView({
 var buttonBack = Titanium.UI.createButton({
 	title : 'BACK',
 	width : buttonWidth,
-	height: buttonHeight,
+	height : buttonHeight,
 	top : topDistanceForButton,
 	left : 5,
 	font : {
@@ -122,12 +126,22 @@ var picker = Ti.UI.createPicker({
 	type : Ti.UI.PICKER_TYPE_DATE,
 	minDate : new Date(2012, 0, 1),
 	maxDate : new Date(2014, 11, 31),
-	value : new Date(),
+	//	value : new Date(),
 	top : 25,
 	height : 200,
 	width : deviceWidth - 20
 });
+picker.addEventListener("change", function(e) {
+	changeDate = e.value;
+});
 
+var timePicker = Ti.UI.createPicker({
+	type : Ti.UI.PICKER_TYPE_TIME
+
+});
+timePicker.addEventListener("change", function(e) {
+	changeTime = e.value;
+});
 var bottomView = Titanium.UI.createView({
 	top : 25,
 	height : 430,
@@ -168,25 +182,62 @@ myData[1].addEventListener('click', function(event) {
 
 });
 
-var data = [{
-	title : "2012-0715-90"
-}, {
-	title : "2012-0715-99"
-}, {
-	title : "2012-0716-12"
-}];
+/*var data = [{
+ title : "2012-0715-90"
+ }, {
+ title : "2012-0715-99"
+ }, {
+ title : "2012-0716-12"
+ }];*/
 
+var data = [];
 listTripsButton.addEventListener('click', function(e) {
-	table.setData(data);
+	//table.setData(data);
+
+	currentDate.setDate(changeDate.getDate());
+	currentDate.setMonth(changeDate.getMonth());
+	currentDate.setFullYear(changeDate.getFullYear());
+	currentDate.setHours(changeTime.getHours());
+	currentDate.setMinutes(changeTime.getMinutes());
+	//currentDate.setSeconds(changeTime.getSeconds());
+	var offset = currentDate.getTimezoneOffset();
+	var offsetD = Math.abs(parseInt(offset / 60));
+	var offsetR = Math.abs(offset % 60);
+	var off = offsetD + '' + offsetR;
+	var ddForRequest = "/Date(" + currentDate.getTime() + "-" + off + ")/";
+	var params = new Array();
+	//	params[0] = "b340";
+	if (plannedVehicleTF.value == '') {
+		alert('Please enter planned vehicle number.');
+		return;
+	} else {
+		params[0] = plannedVehicleTF.value;
+	}
+	//	params[1] = "/Date(1343880000000-0400)/";
+	params[1] = ddForRequest;
+	doAction(LIST_TRIPS, params, function(back) {
+		//	alert("Callback Return :\n" + back);
+		if (back.length > 0) {
+			for (var i = 0; i < back.length; i++) {
+				data[i] = {
+					title : back[0].trip.tripCode,
+					ref : back[0].trip.tripRefId
+				};
+			}
+			table.setData(data);
+			selectTripSelectBox.setTitle(data[0].title);
+			selectTripSelectBox.setEnabled(true);
+			selectedTrip = data[0].title;
+		} else {
+			alert('No Records Found.');
+		}
+
+	});
 
 	//	var l = [];
 	//	l = table.data[0].getRows();
 	//	selectedRow = l[0];
 	//	l[0].setBackgroundColor('gray');
-
-	selectTripSelectBox.setTitle(data[0].title);
-	selectTripSelectBox.setEnabled(true);
-	selectedTrip = data[0].title;
 
 });
 
@@ -202,7 +253,7 @@ var selectTripLabel = Titanium.UI.createLabel({
 var selectTripSelectBox = Titanium.UI.createButton({
 	title : '',
 	top : 85,
-//	backgroundImage : '/images/btn_dropdown_normal.png',
+	//	backgroundImage : '/images/btn_dropdown_normal.png',
 	backgroundImage : dropDownImage,
 	color : 'black',
 	width : deviceWidth - 40,
@@ -213,8 +264,8 @@ var selectTripSelectBox = Titanium.UI.createButton({
 
 var selectTripView = Titanium.UI.createView({
 	layout : 'vertical',
-	backgroundColor :'black',
-//	opacity : 0.5,
+	backgroundColor : 'black',
+	//	opacity : 0.5,
 	width : deviceWidth - 20,
 	height : 250,
 	borderColor : 'white',
@@ -273,11 +324,11 @@ var table = Titanium.UI.createTableView({
 	top : 5,
 	left : 20,
 	right : 20,
-	bottom:10,
+	bottom : 10,
 	height : 150,
 	width : deviceWidth - 60,
-	borderColor : 'white',
-	borderWidth : 1
+	//	borderColor : 'white',
+	//	borderWidth : 1
 });
 
 table.addEventListener('click', function(e) {
@@ -306,19 +357,19 @@ selectTripView.add(selectTripLabelInDialog);
 selectTripView.add(table);
 
 /*var dialog = Titanium.UI.createOptionDialog({
-	androidView : selectTripView,
-	cancel : 1
-});*/
+ androidView : selectTripView,
+ cancel : 1
+ });*/
 var translucent = Titanium.UI.createView({
-	top : 0,	
-	backgroundColor :'black',
+	top : 0,
+	backgroundColor : 'black',
 	opacity : 0.5,
-//	width : deviceWidth - 20,
-//	height : 'auto',
+	//	width : deviceWidth - 20,
+	//	height : 'auto',
 	bottom : 0,
 	left : 0,
 	right : 0
-	
+
 });
 
 var dialog = Ti.UI.createView({
@@ -329,8 +380,6 @@ var dialog = Ti.UI.createView({
 	right : 0,
 	visible : false,
 });
-
-
 
 selectTripSelectBox.addEventListener('click', function(e) {
 	var l = [];
@@ -391,11 +440,11 @@ var safetyInspectionLabel = Titanium.UI.createLabel({
 });
 
 /*var safetyInspectionCB = Titanium.UI.createSwitch({
-	style : Titanium.UI.Android.SWITCH_STYLE_CHECKBOX,
-	value : false,
-	top : 5,
-	left : -deviceWidth / 80
-});*/
+ style : Titanium.UI.Android.SWITCH_STYLE_CHECKBOX,
+ value : false,
+ top : 5,
+ left : -deviceWidth / 80
+ });*/
 
 var safetyInspectionCB = Titanium.UI.createImageView({
 	image : '/images/btn_check_off.png',
@@ -406,20 +455,18 @@ var safetyInspectionCB = Titanium.UI.createImageView({
 	top : textFieldTop
 });
 
-safetyInspectionCB.addEventListener('click',function(e){
-	if(this.value == false)
-	{
+safetyInspectionCB.addEventListener('click', function(e) {
+	if (this.value == false) {
 		this.value = true;
 		this.image = '/images/btn_check_on.png';
 		return;
 	}
-	if(this.value == true)
-	{
+	if (this.value == true) {
 		this.value = false;
 		this.image = '/images/btn_check_off.png';
 		return;
-	}	
-	
+	}
+
 });
 
 safetyInspectionHorizontalView.add(safetyInspectionLabel);
@@ -449,14 +496,41 @@ var startButton = Titanium.UI.createButton({
 });
 
 startButton.addEventListener('click', function(e) {
-	var tripDetailWindow = Titanium.UI.createWindow({
-		backgroundColor : 'white',
-		width : deviceWidth,
-		url : 'TripDetailScreen.js',
-		orientationModes : [1]
-	});
+	var param = new Array();
+	//param[0] = "313B89EF-7ACD-4A5E-8BA3-9E7D977ABE89";
+	//	param[1] = "1001";
+	//param[2] = "336";
+	//param[3] = "test notes";
+	if (data.length > 0) {
+		var l = [];
+		l = table.data[0].getRows();
+		for (var i = 0; i < data.length; i++) {
+			if (selectTripSelectBox.title == data[i].title) {
+				param[0] = data[i].ref;
+				i = data.length;
+			}
+		}
+	}else{
+		alert('Please Select Trip.');
+		return;
+	}
+	//	param[0] = "313B89EF-7ACD-4A5E-8BA3-9E7D977ABE89";
+	if (plannedVehicleTF.value == '') {
+		alert('Please enter planned vehicle number.');
+		return;
+	} else {
+		param[1] = plannedVehicleTF.value;
+	}
+	if (odometerVehicleTF.value == '') {
+		alert('Please enter Odometer Value.');
+		return;
+	} else {
+		param[2] = odometerVehicleTF.value;
+	}
+	param[3] = textArea.value;
 
-	tripDetailWindow.open();
+	doAction(START_TRIP, param);
+
 });
 
 dialog.add(translucent);
@@ -471,11 +545,10 @@ bottomView.add(noteLabel);
 bottomView.add(textArea);
 bottomView.add(startButton);
 
-
 scrollView.add(topView);
 scrollView.add(picker);
+scrollView.add(timePicker);
 scrollView.add(bottomView);
-
 
 startWindow.add(startViewHeading);
 startWindow.add(scrollView);
