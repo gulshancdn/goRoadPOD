@@ -81,7 +81,6 @@ var passwordLabel = Titanium.UI.createLabel({
 	text : 'Password',
 	width : deviceWidth / 2 - 20,
 	color : 'black'
-	//	font:{fontSize:21,fontFamily:'Helvetica Neue'},
 });
 
 var passwordTF = Titanium.UI.createTextField({
@@ -110,8 +109,6 @@ var autoLoginLabel = Titanium.UI.createLabel({
 	text : 'Auto Login',
 	width : deviceWidth / 2 - 20,
 	color : 'black'
-
-	//font:{fontSize:21,fontFamily:'Helvetica Neue'},
 });
 
 
@@ -182,11 +179,11 @@ loginButton.addEventListener('click', function(e) {
 var companyCodeLocalStorage = Ti.App.Properties.getString("CompanyCode");
 if (companyCodeLocalStorage != '') {
 	companyCodeTF.value = companyCodeLocalStorage;
-};
+}
 var userNameLocalStorage = Ti.App.Properties.getString("UserName");
 if (userNameLocalStorage != '') {
 	userNameTF.value = userNameLocalStorage;
-};
+}
 /*var passwordLocalStorage = Ti.App.Properties.getString("Password");
 if (passwordLocalStorage != '') {
 	passwordTF.value = passwordLocalStorage;

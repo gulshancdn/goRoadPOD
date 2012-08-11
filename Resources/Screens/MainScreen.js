@@ -1,7 +1,9 @@
 Titanium.include('Constants.js');
 
+// To get current window
 var win = Ti.UI.currentWindow;
 
+// To add Start, View and End Trip Button
 var buttonViewMainScreen = Titanium.UI.createView({
 	layout : 'vertical'
 });
@@ -12,6 +14,7 @@ var startTripButton = Titanium.UI.createButton({
 	height : 70,
 	width : deviceWidth / 2
 });
+//To open Start Trip Screen
 startTripButton.addEventListener('click', function(e) {
 	var startWindow = Titanium.UI.createWindow({
 		backgroundColor : 'white',
@@ -30,6 +33,7 @@ var viewTripButton = Titanium.UI.createButton({
 	height : 70,
 	width : deviceWidth / 2
 });
+//To open View Trip Screen
 viewTripButton.addEventListener('click', function(e) {
 
 	var tripDetailWindow = Titanium.UI.createWindow({
@@ -50,6 +54,7 @@ var endTripButton = Titanium.UI.createButton({
 	height : 70,
 	width : deviceWidth / 2
 });
+//
 endTripButton.addEventListener('click', function(e) {
 		Ti.App.Properties.removeProperty("CompanyCode");
 		Ti.App.Properties.removeProperty("UserName");

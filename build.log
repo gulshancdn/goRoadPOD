@@ -6,206 +6,26 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.016000 seconds on emulator to get ready
+[DEBUG] waited 0.031000 seconds on emulator to get ready
 [DEBUG] com.goroampod.app installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[INFO] Detected change in tiapp.xml, or assets deleted. Forcing full re-build...
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\appicon.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\appicon.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\default.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\default.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Thumbs.db
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\app.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\app.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\controller\Communicator.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\controller\Communicator.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\controller\Controller.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\controller\Controller.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\android-dpb-1.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\android-dpb-1.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\arrow.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\arrow.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\bigdropdown.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\bigdropdown.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\bigdropdown1.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\bigdropdown1.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_check_off.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_check_off.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_check_on.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_check_on.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_dropdown_disabled.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_dropdown_disabled.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_dropdown_normal.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_dropdown_normal.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_dropdown_normal_new.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_dropdown_normal_new.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\expander_ic_minimized.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\expander_ic_minimized.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\expander_ic_minimized_small.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\expander_ic_minimized_small.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\iphone-dpb-1.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\iphone-dpb-1.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\iphone-dpb-2.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\iphone-dpb-2.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\picker.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\picker.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\Thumbs.db
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\tick-mark-no.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\tick-mark-no.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\tick-mark-yes.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\tick-mark-yes.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\tick-mark-yes_small.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\tick-mark-yes_small.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\titanium_logo.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\titanium_logo.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\titanium_logo_small.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\titanium_logo_small.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\KS_nav_ui.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\KS_nav_ui.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\KS_nav_views.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\KS_nav_views.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\Constants.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\Constants.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\EditItemScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\EditItemScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\EditOrderScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\EditOrderScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\LoginScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\LoginScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\MainScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\MainScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\RejectOrderScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\RejectOrderScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\SettingsScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\SettingsScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\SignatureForm.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\SignatureForm.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\StartScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\StartScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\SyncScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\SyncScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\TripDetailScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\TripDetailScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\ViewOrderScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\ViewOrderScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\util\jsonSerializable.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\util\jsonSerializable.js
-[TRACE] Generating Java Classes
+[TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\controller\Controller.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\controller\Controller.js
+[INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-hdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-land-hdpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-ldpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-land-ldpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-port-hdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-port-hdpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-port-ldpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-port-ldpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-hdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-land-hdpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-ldpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-land-ldpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-mdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-land-mdpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-hdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-hdpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-ldpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-ldpi\thumbs_2c5499c213.db
-[TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-mdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-mdpi\thumbs_2c5499c213.db
-[DEBUG] app stylesheet => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\ApplicationStylesheet.java
-[DEBUG] copying app icon: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\appicon.png
-[DEBUG] generating theme.xml
 [DEBUG] found drawable-long-land-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-hdpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-hdpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-land-hdpi\background.png
 [DEBUG] found drawable-long-land-ldpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-ldpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-ldpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-land-ldpi\background.png
 [DEBUG] found drawable-long-port-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-port-hdpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-port-hdpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-port-hdpi\background.png
 [DEBUG] found drawable-long-port-ldpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-port-ldpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-port-ldpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-port-ldpi\background.png
 [DEBUG] found drawable-notlong-land-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-hdpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-hdpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-land-hdpi\background.png
 [DEBUG] found drawable-notlong-land-ldpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-ldpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-ldpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-land-ldpi\background.png
 [DEBUG] found drawable-notlong-land-mdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-mdpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-land-mdpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-land-mdpi\background.png
 [DEBUG] found drawable-notlong-port-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-hdpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-hdpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-hdpi\background.png
 [DEBUG] found drawable-notlong-port-ldpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-ldpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-ldpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-ldpi\background.png
 [DEBUG] found drawable-notlong-port-mdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-mdpi\default.png
-[DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-mdpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-mdpi\background.png
-[DEBUG] found splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\default.png
-[TRACE] Writing out AndroidManifest.xml
-[DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\ApplicationStylesheet.java to javac build list
-[DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\GoroampodActivity.java to javac build list
-[DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\GoroampodAppInfo.java to javac build list
-[DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\GoroampodApplication.java to javac build list
-[DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\R.java to javac build list
-[DEBUG] Building Java Sources: "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\ApplicationStylesheet.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodActivity.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodAppInfo.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodApplication.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\R.java"
 [INFO] Waiting for SDCard to become available..
-[INFO] Compiling Android Resources... This could take some time
-[DEBUG] Android classes.dex built
-[DEBUG] creating unsigned apk: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\app-unsigned.apk
-[DEBUG] from resource zip => assets/Resources/Screens/Constants.js
-[DEBUG] from resource zip => assets/Resources/Screens/EditItemScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/EditOrderScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/LoginScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/MainScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/RejectOrderScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/SettingsScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/SignatureForm.js
-[DEBUG] from resource zip => assets/Resources/Screens/StartScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/SyncScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/TripDetailScreen.js
-[DEBUG] from resource zip => assets/Resources/Screens/ViewOrderScreen.js
-[DEBUG] from resource zip => assets/Resources/controller/Communicator.js
-[DEBUG] from resource zip => assets/Resources/controller/Controller.js
-[DEBUG] from resource zip => assets/Resources/images/android-dpb-1.png
-[DEBUG] from resource zip => assets/Resources/images/arrow.png
-[DEBUG] from resource zip => assets/Resources/images/bigdropdown.png
-[DEBUG] from resource zip => assets/Resources/images/bigdropdown1.png
-[DEBUG] from resource zip => assets/Resources/images/btn_check_off.png
-[DEBUG] from resource zip => assets/Resources/images/btn_check_on.png
-[DEBUG] from resource zip => assets/Resources/images/btn_dropdown_disabled.png
-[DEBUG] from resource zip => assets/Resources/images/btn_dropdown_normal.png
-[DEBUG] from resource zip => assets/Resources/images/btn_dropdown_normal_new.png
-[DEBUG] from resource zip => assets/Resources/images/expander_ic_minimized.png
-[DEBUG] from resource zip => assets/Resources/images/expander_ic_minimized_small.png
-[DEBUG] from resource zip => assets/Resources/images/iphone-dpb-1.png
-[DEBUG] from resource zip => assets/Resources/images/iphone-dpb-2.png
-[DEBUG] from resource zip => assets/Resources/images/picker.png
-[DEBUG] from resource zip => assets/Resources/images/tick-mark-no.png
-[DEBUG] from resource zip => assets/Resources/images/tick-mark-yes.png
-[DEBUG] from resource zip => assets/Resources/images/tick-mark-yes_small.png
-[DEBUG] from resource zip => assets/Resources/images/titanium_logo.png
-[DEBUG] from resource zip => assets/Resources/images/titanium_logo_small.png
-[DEBUG] from resource zip => assets/Resources/util/jsonSerializable.js
-[DEBUG] from resource zip => assets/Resources/KS_nav_ui.png
-[DEBUG] from resource zip => assets/Resources/KS_nav_views.png
-[DEBUG] from resource zip => assets/Resources/app.js
-[DEBUG] from resource zip => assets/Resources/appicon.png
-[DEBUG] from resource zip => assets/Resources/default.png
-[DEBUG] from resource zip => assets/Resources/ti.cloud.js
-[DEBUG] from resource zip => assets/app.json
-[DEBUG] from resource zip => assets/index.json
-[DEBUG] from resource zip => assets/tiapp.xml
-[DEBUG] from resource zip => res/drawable/appicon.png
-[DEBUG] from resource zip => res/drawable/background.png
-[DEBUG] from resource zip => res/drawable/close.png
-[DEBUG] from resource zip => res/drawable/facebook_login.png
-[DEBUG] from resource zip => res/drawable/facebook_login_down.png
-[DEBUG] from resource zip => res/drawable/facebook_login_wide.png
-[DEBUG] from resource zip => res/drawable/facebook_login_wide_down.png
-[DEBUG] from resource zip => res/drawable/facebook_logout.png
-[DEBUG] from resource zip => res/drawable/facebook_logout_down.png
-[DEBUG] from resource zip => res/layout/titanium_tabgroup.xml
-[DEBUG] from resource zip => AndroidManifest.xml
-[DEBUG] from resource zip => resources.arsc
-[DEBUG] from resource zip => res/drawable-hdpi/close.png
-[DEBUG] from resource zip => res/drawable-ldpi/close.png
-[DEBUG] from resource zip => res/drawable-long-land-hdpi/background.png
-[DEBUG] from resource zip => res/drawable-long-land-hdpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-long-land-ldpi/background.png
-[DEBUG] from resource zip => res/drawable-long-land-ldpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-long-port-hdpi/background.png
-[DEBUG] from resource zip => res/drawable-long-port-hdpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-long-port-ldpi/background.png
-[DEBUG] from resource zip => res/drawable-long-port-ldpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/thumbs_2c5499c213.db
-[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/background.png
-[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/thumbs_2c5499c213.db
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\thirdparty.jar => org/apache/Commons-NOTICE.txt
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\thirdparty.jar => org/apache/HttpComponents-NOTICE.txt
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\thirdparty.jar => org/apache/mime4j-NOTICE.txt
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\modules\titanium-facebook.jar => ti/modules/titanium/facebook/LICENSE
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/build.properties
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/background.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
-[DEBUG] from JAR C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
-[DEBUG] installing native lib: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\modules\Android\ti.paint\2.0.1\libs\armeabi\libti.paint.so
-[DEBUG] installing native lib: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\modules\Android\ti.paint\2.0.1\libs\armeabi-v7a\libti.paint.so
-[DEBUG] installing native SDK libs
-[DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.031000 seconds on emulator to get ready
-[INFO] Installing application on emulator
+[INFO] Re-launching application ... goRoamPOD
 [INFO] Launching application ... goRoamPOD
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.goroampod.app/.GoroampodActivity }
 
-[INFO] Deployed goRoamPOD ... Application should be running.

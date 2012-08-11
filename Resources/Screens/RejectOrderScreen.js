@@ -1,7 +1,8 @@
 Titanium.include('Constants.js');
 
+// To get current window
 var rejectOrderWindow = Ti.UI.currentWindow;
-
+// Heading View
 var rejectOrderViewHeading = Titanium.UI.createView({
 	top : 0,
 	height : headingHeight,
@@ -11,7 +12,7 @@ var rejectOrderViewHeading = Titanium.UI.createView({
 	borderColor : 'black',
 	borderWidth : 1
 });
-
+// Back Button
 var buttonBackRejectOrder = Titanium.UI.createButton({
 	title : 'BACK',
 	width : buttonWidth,
@@ -20,14 +21,13 @@ var buttonBackRejectOrder = Titanium.UI.createButton({
 	left : 5,
 	font : {
 		fontSize : 15
-	},
-//	style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+	}
 });
-
+// To close current window
 buttonBackRejectOrder.addEventListener('click', function(e) {
 	rejectOrderWindow.close();
 });
-
+// Heading text
 var headingRejectOrder = Titanium.UI.createLabel({
 	top : 7,
 	text : 'Reject Order',
@@ -104,8 +104,6 @@ var rejectOrderTable = Ti.UI.createTableView({
 	width : deviceWidth - deviceWidth / 8,
 	height : 280,
 	backgroundColor : 'gray',
-//	borderColor : 'black',
-//  borderWidth : 1,
 	separatorColor : 'white'
 });
 

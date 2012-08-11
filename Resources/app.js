@@ -1,6 +1,7 @@
 Titanium.include('/controller/Controller.js');
 Titanium.include('/Screens/Constants.js')
 
+
 var w = Titanium.UI.createWindow({
     url:'Screens/LoginScreen.js',
     backgroundColor: 'white',

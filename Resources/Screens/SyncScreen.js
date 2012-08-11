@@ -1,7 +1,7 @@
 Titanium.include('Constants.js');
-
+// To get current window
 var syncWindow = Ti.UI.currentWindow;
-
+// Heading View
 var syncViewHeading = Titanium.UI.createView({
 	top : 0,
 	height : headingHeight,
@@ -11,7 +11,7 @@ var syncViewHeading = Titanium.UI.createView({
 	borderColor : 'black',
 	borderWidth : 1
 });
-
+// Back Button
 var buttonBackSync = Titanium.UI.createButton({
 	title : 'BACK',
 	width : buttonWidth,
@@ -20,14 +20,13 @@ var buttonBackSync = Titanium.UI.createButton({
 	left : 5,
 	font : {
 		fontSize : 15
-	},
-//	style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+	}
 });
-
+// To close current window
 buttonBackSync.addEventListener('click', function(e) {
 	syncWindow.close();
 });
-
+// Heading text
 var headingSync = Titanium.UI.createLabel({
 	top : 7,
 	text : 'Sync',
@@ -108,8 +107,6 @@ var syncTable = Ti.UI.createTableView({
 	width : deviceWidth - deviceWidth / 8,
 	bottom : 20,
 	backgroundColor : 'gray',
-//	borderColor : 'black',
-//	borderWidth : 1,
 	separatorColor : 'white'
 });
 

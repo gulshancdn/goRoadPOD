@@ -1,7 +1,7 @@
 Titanium.include('Constants.js');
-
+// To get current window
 var editItemWindow = Ti.UI.currentWindow;
-
+// Heading View
 var editItemViewHeading = Titanium.UI.createView({
 	top : 0,
 	height : headingHeight,
@@ -11,7 +11,7 @@ var editItemViewHeading = Titanium.UI.createView({
 	borderColor : 'black',
 	borderWidth : 1
 });
-
+// Back Button
 var buttonBackEditItem = Titanium.UI.createButton({
 	title : 'BACK',
 	width : buttonWidth,
@@ -20,14 +20,13 @@ var buttonBackEditItem = Titanium.UI.createButton({
 	left : 5,
 	font : {
 		fontSize : 15
-	},
-//	style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+	}
 });
-
+// To close current window
 buttonBackEditItem.addEventListener('click', function(e) {
 	editItemWindow.close();
 });
-
+// Heading text
 var headingEditItem = Titanium.UI.createLabel({
 	top : 7,
 	text : 'Edit Item',
@@ -45,7 +44,7 @@ var headingEditItem = Titanium.UI.createLabel({
 
 editItemViewHeading.add(buttonBackEditItem);
 editItemViewHeading.add(headingEditItem);
-
+// Scroll View to add full content of screen
 var scrollViewForEditItem = Titanium.UI.createScrollView({
 	contentWidth : 'auto',
 	contentHeight : 'auto',
@@ -248,7 +247,7 @@ var saveButtonEditItem = Titanium.UI.createButton({
 	width : deviceWidth / 4,
 	title : 'Save'
 });
-
+// To close current window
 saveButtonEditItem.addEventListener('click', function(e) {
 	editItemWindow.close();
 });

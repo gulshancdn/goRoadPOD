@@ -1,8 +1,6 @@
-
+// Json String to post data
 function getJSONString(opcode, array, module, params)
 {
-//	alert(params[0]+' '+params[1]+' '+params[2]);
-//	return;
 	var mataData="";
 	for (key in array) {
 		// alert("a["+key+"]="+ array[key]);
@@ -45,6 +43,5 @@ function getJSONString(opcode, array, module, params)
 	
 	jsonString += '"clockTimeInUTC" : "'+dd+'" } }';
 	
-	//alert(jsonString);
 	return jsonString;
 }

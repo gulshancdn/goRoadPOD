@@ -1,7 +1,7 @@
 Titanium.include('Constants.js');
-
+// To get current window
 var signatureFormWindow = Ti.UI.currentWindow;
-
+// Heading View
 var signatureFormHeading = Titanium.UI.createView({
 	top : 0,
 	height : headingHeight,
@@ -10,7 +10,7 @@ var signatureFormHeading = Titanium.UI.createView({
 	borderColor : 'black',
 	borderWidth : 1
 });
-
+// Back Button
 var buttonBackSignatureForm = Titanium.UI.createButton({
 	title : 'BACK',
 	width : buttonWidth,
@@ -19,10 +19,9 @@ var buttonBackSignatureForm = Titanium.UI.createButton({
 	left : 5,
 	font : {
 		fontSize : 15
-	},
-//	style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+	}
 });
-
+// To close current window and store digital sign in store
 buttonBackSignatureForm.addEventListener('click', function(e) {
 	if (platform == 'android') {
 		try {
@@ -77,10 +76,9 @@ var buttonClearSignatureForm = Titanium.UI.createButton({
 	top : topDistanceForButton,
 	font : {
 		fontSize : 15
-	},
-//	style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+	}
 });
-
+// To clear digital sign
 buttonClearSignatureForm.addEventListener('click', function(e) {
 	paintView.clear();
 });

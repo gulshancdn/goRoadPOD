@@ -1,7 +1,7 @@
 Titanium.include('Constants.js');
-
+// To get current window
 var editOrderWindow = Ti.UI.currentWindow;
-
+// Heading View
 var editOrderViewHeading = Titanium.UI.createView({
 	top : 0,
 	height : headingHeight,
@@ -11,7 +11,7 @@ var editOrderViewHeading = Titanium.UI.createView({
 	borderColor : 'black',
 	borderWidth : 1
 });
-
+// Back Button
 var buttonBackEditOrder = Titanium.UI.createButton({
 	title : 'BACK',
 	width : buttonWidth,
@@ -20,14 +20,13 @@ var buttonBackEditOrder = Titanium.UI.createButton({
 	left : 5,
 	font : {
 		fontSize : 15
-	},
-//	style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+	}
 });
-
+// To close current window
 buttonBackEditOrder.addEventListener('click', function(e) {
 	editOrderWindow.close();
 });
-
+// Heading text
 var headingEditOrder = Titanium.UI.createLabel({
 	top : 7,
 	text : 'Edit Order',
@@ -46,6 +45,7 @@ var headingEditOrder = Titanium.UI.createLabel({
 editOrderViewHeading.add(buttonBackEditOrder);
 editOrderViewHeading.add(headingEditOrder);
 
+// Scroll View to add full content of screen
 var scrollViewForEditOrder = Titanium.UI.createScrollView({
 	contentWidth : 'auto',
 	contentHeight : 'auto',
@@ -173,13 +173,14 @@ var signatureValueButton = Titanium.UI.createButton({
 	height : buttonHeightForAll
 });
 
+
+// To open Signature form
 signatureValueButton.addEventListener('click', function(e) {
 	var signatureFormWindow = Titanium.UI.createWindow({
 		backgroundColor : 'white',
 		width : deviceWidth,
 		url : 'SignatureForm.js'
 	});
-
 	signatureFormWindow.open();
 });
 
@@ -195,7 +196,7 @@ var noIcon = Titanium.UI.createImageView({
 	left : 5,
 	top : 40
 });
-
+// To delete digital Sign saved in store
 noIcon.addEventListener('click', function(e) {
 	digitalSign.image = '';
 	//	var imageFile2 = Ti.Filesystem.getFile('file:///store/').exists()
@@ -326,6 +327,8 @@ scrollViewForEditOrder.add(saveButtonEditOrder);
 editOrderWindow.add(editOrderViewHeading);
 editOrderWindow.add(scrollViewForEditOrder);
 
+
+// To get digital sign from store on focus event
 editOrderWindow.addEventListener('focus', function(e) {
 	//var imageFile1 = Ti.Filesystem.getFile('file:///store/').exists()
 	//            ? Ti.Filesystem.getFile('file:///store/', 'Painting-1.png')

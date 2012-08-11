@@ -1,13 +1,18 @@
 Titanium.include('Constants.js');
 Titanium.include('/controller/Controller.js');
 
+// To get current window
 var startWindow = Ti.UI.currentWindow;
 
 var selectedTrip = '';
+// To get changed date by user from date picker
 var changeDate = new Date();
+// To get changed time by user from time picker
 var changeTime = new Date();
+// To get current date object to set date from changeDate and time from changeTime
 var currentDate = new Date();
 
+// Heading View
 var startViewHeading = Titanium.UI.createView({
 	top : 0,
 	height : headingHeight,
@@ -17,7 +22,7 @@ var startViewHeading = Titanium.UI.createView({
 	borderColor : 'black',
 	borderWidth : 1
 });
-
+// Back Button
 var buttonBack = Titanium.UI.createButton({
 	title : 'BACK',
 	width : buttonWidth,
@@ -26,14 +31,14 @@ var buttonBack = Titanium.UI.createButton({
 	left : 5,
 	font : {
 		fontSize : 15
-	},
-	//style : Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+	}
 });
-
+// To close current window
 buttonBack.addEventListener('click', function(e) {
 	startWindow.close();
 });
 
+// Heading text
 var heading = Titanium.UI.createLabel({
 	top : 7,
 	text : 'Start Trip',
@@ -52,6 +57,7 @@ var heading = Titanium.UI.createLabel({
 startViewHeading.add(buttonBack);
 startViewHeading.add(heading);
 
+// Scroll View to add full content of screen
 var scrollView = Titanium.UI.createScrollView({
 	contentWidth : 'auto',
 	contentHeight : 'auto',
@@ -119,29 +125,38 @@ var actualVehicleTF = Titanium.UI.createTextField({
 actualVehicleHorizontalView.add(actualVehicleLabel);
 actualVehicleHorizontalView.add(actualVehicleTF);
 
+// Upper part of date picker i.e. to add planned vehicle and actual vehicle labels and textfields
 topView.add(plannedVehicleHorizontalView);
 topView.add(actualVehicleHorizontalView);
 
+// Date Picker
 var picker = Ti.UI.createPicker({
 	type : Ti.UI.PICKER_TYPE_DATE,
 	minDate : new Date(2012, 0, 1),
 	maxDate : new Date(2014, 11, 31),
-	//	value : new Date(),
+	value : new Date(),
 	top : 25,
 	height : 200,
 	width : deviceWidth - 20
 });
+// To get changed date by user
 picker.addEventListener("change", function(e) {
 	changeDate = e.value;
 });
 
+//Time Picker
 var timePicker = Ti.UI.createPicker({
-	type : Ti.UI.PICKER_TYPE_TIME
+	type : Ti.UI.PICKER_TYPE_TIME,
+	height : 200,
+	width : deviceWidth - 20,
+	top : 30
 
 });
+// To get changed time by user
 timePicker.addEventListener("change", function(e) {
 	changeTime = e.value;
 });
+// View to add lower than time picker
 var bottomView = Titanium.UI.createView({
 	top : 25,
 	height : 430,
@@ -153,34 +168,33 @@ var listTripsButton = Titanium.UI.createButton({
 	width : deviceWidth / 4,
 	title : 'List Trips'
 });
-var myData = [];
+/*var myData = [];
 
-myData[0] = Ti.UI.createTableViewRow({
-	className : 'Order Number',
-	backgroundFocusedColor : 'green'
-})
-var rowLabel = Ti.UI.createLabel({
-	text : '2012-0715-90'
-})
-myData[0].add(rowLabel);
-myData[0].addEventListener('click', function(event) {
-	var rowNumber = event.index;
-	alert(rowNumber);
+ myData[0] = Ti.UI.createTableViewRow({
+ className : 'Order Number',
+ backgroundFocusedColor : 'green'
+ })
+ var rowLabel = Ti.UI.createLabel({
+ text : '2012-0715-90'
+ })
+ myData[0].add(rowLabel);
+ myData[0].addEventListener('click', function(event) {
+ var rowNumber = event.index;
+ alert(rowNumber);
 
-});
-myData[1] = Ti.UI.createTableViewRow({
-	className : 'Order Number',
-	backgroundFocusedColor : 'green'
-})
-var rowLabel = Ti.UI.createLabel({
-	text : '2012-0715-99'
-})
-myData[1].add(rowLabel);
-myData[1].addEventListener('click', function(event) {
-	var rowNumber = event.index;
-	alert(rowNumber);
-
-});
+ });
+ myData[1] = Ti.UI.createTableViewRow({
+ className : 'Order Number',
+ backgroundFocusedColor : 'green'
+ })
+ var rowLabel = Ti.UI.createLabel({
+ text : '2012-0715-99'
+ })
+ myData[1].add(rowLabel);
+ myData[1].addEventListener('click', function(event) {
+ var rowNumber = event.index;
+ alert(rowNumber);
+ });*/
 
 /*var data = [{
  title : "2012-0715-90"
@@ -216,7 +230,8 @@ listTripsButton.addEventListener('click', function(e) {
 	//	params[1] = "/Date(1343880000000-0400)/";
 	params[1] = ddForRequest;
 	doAction(LIST_TRIPS, params, function(back) {
-		//	alert("Callback Return :\n" + back);
+			/*alert("Callback Return :\n" + back);
+			return;*/
 		if (back.length > 0) {
 			for (var i = 0; i < back.length; i++) {
 				data[i] = {
@@ -229,15 +244,14 @@ listTripsButton.addEventListener('click', function(e) {
 			selectTripSelectBox.setEnabled(true);
 			selectedTrip = data[0].title;
 		} else {
+			data.length = 0;
+			table.setData('');
+			selectTripSelectBox.setTitle('');
+			selectTripSelectBox.setEnabled(false);
 			alert('No Records Found.');
 		}
 
 	});
-
-	//	var l = [];
-	//	l = table.data[0].getRows();
-	//	selectedRow = l[0];
-	//	l[0].setBackgroundColor('gray');
 
 });
 
@@ -262,6 +276,7 @@ var selectTripSelectBox = Titanium.UI.createButton({
 	enabled : false
 });
 
+/* Pop up Code starts here */
 var selectTripView = Titanium.UI.createView({
 	layout : 'vertical',
 	backgroundColor : 'black',
@@ -326,9 +341,7 @@ var table = Titanium.UI.createTableView({
 	right : 20,
 	bottom : 10,
 	height : 150,
-	width : deviceWidth - 60,
-	//	borderColor : 'white',
-	//	borderWidth : 1
+	width : deviceWidth - 60
 });
 
 table.addEventListener('click', function(e) {
@@ -355,11 +368,14 @@ table.addEventListener('click', function(e) {
 selectTripView.add(selectTripButtonView);
 selectTripView.add(selectTripLabelInDialog);
 selectTripView.add(table);
+/* Pop up Code ends here */
 
 /*var dialog = Titanium.UI.createOptionDialog({
  androidView : selectTripView,
  cancel : 1
  });*/
+
+// To set background when pop up open
 var translucent = Titanium.UI.createView({
 	top : 0,
 	backgroundColor : 'black',
@@ -369,9 +385,9 @@ var translucent = Titanium.UI.createView({
 	bottom : 0,
 	left : 0,
 	right : 0
-
 });
 
+// View which is not visible for popup it will be visible when Select Trip Drop down box - click event
 var dialog = Ti.UI.createView({
 	backgroundColor : '#00000000',
 	top : 0,
@@ -390,9 +406,7 @@ selectTripSelectBox.addEventListener('click', function(e) {
 		} else {
 			l[i].setBackgroundColor('transparent');
 		}
-
 	}
-
 	dialog.show();
 });
 
@@ -466,7 +480,6 @@ safetyInspectionCB.addEventListener('click', function(e) {
 		this.image = '/images/btn_check_off.png';
 		return;
 	}
-
 });
 
 safetyInspectionHorizontalView.add(safetyInspectionLabel);
@@ -510,11 +523,10 @@ startButton.addEventListener('click', function(e) {
 				i = data.length;
 			}
 		}
-	}else{
+	} else {
 		alert('Please Select Trip.');
 		return;
 	}
-	//	param[0] = "313B89EF-7ACD-4A5E-8BA3-9E7D977ABE89";
 	if (plannedVehicleTF.value == '') {
 		alert('Please enter planned vehicle number.');
 		return;
@@ -533,6 +545,7 @@ startButton.addEventListener('click', function(e) {
 
 });
 
+// Dialog(View) to add dull background and Popup 
 dialog.add(translucent);
 dialog.add(selectTripView);
 

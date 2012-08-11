@@ -4,6 +4,7 @@ Titanium.include('/util/jsonSerializable.js');
 var LOGIN_CON = 1;
 var GET_LIST_TRIP = 2;
 var _START_TRIP = 3;
+var VERIFY_LOGIN_CON = 4;
 
 var DOMAIN_URL = 'http://ss2.test.bizspeed.com/syncmobilesuitejson.asmx';
 
@@ -84,6 +85,19 @@ function startTrip(params){
 	getConnection(url, request, true, _START_TRIP);
 }
 
+function verifyLogin(params) {
+	var url = params[3];
+
+	var opcode = 'AuthenticateUser'
+	var module = 'SS2.MobileHub.SyncMobileSuiteJSON';
+	var a = new Object();
+	a["InParam1"] = "";
+
+	var request = getJSONString(opcode, a, module, params);
+//	alert(request);
+	getConnection(url, request, true, VERIFY_LOGIN_CON);
+}
+
 function callback(response, statusCode, context, showInd) {
 	switch(context) {
 		case LOGIN_CON:
@@ -94,6 +108,9 @@ function callback(response, statusCode, context, showInd) {
 			break;
 		case _START_TRIP:
 			startTripCallback(response, statusCode, showInd);
+			break;
+		case VERIFY_LOGIN_CON:
+			verifyLoginCallback(response, statusCode, showInd);
 			break;
 	}
 }
