@@ -5,7 +5,24 @@ var deviceHeight = Titanium.Platform.displayCaps.platformHeight;
 // To get platform name eiter android or iphone
 var platform = Ti.Platform.name;
 
-//var dataOfListTripForStartScreen = new Array();
+var mainWindow = null;
+
+function createMainWindow() {
+	if (mainWindow != null) {
+		return mainWindow;
+	}
+	mainWindow = Titanium.UI.createWindow({
+		backgroundColor : 'white',
+		width : deviceWidth,
+		url : '/Screens/MainScreen.js',
+		exitOnClose : true,
+		orientationModes : [1]
+	});
+
+	return mainWindow;
+
+}
+
 // Some parameters for android platform
 if (platform == 'android') {
 	headingHeight = 50;
@@ -27,9 +44,9 @@ if (platform == 'android') {
 		dropDownImage = '/images/bigdropdown.png';
 	}
 	if (deviceWidth == 320) {
-		tripDetailLabelWidth = deviceWidth*50/100;
+		tripDetailLabelWidth = deviceWidth * 50 / 100;
 	} else {
-		tripDetailLabelWidth = deviceWidth*80/100;
+		tripDetailLabelWidth = deviceWidth * 80 / 100;
 	}
 	tableLeftSpace = 5;
 	titaniumLogo = '/images/titanium_logo.png';
@@ -51,7 +68,7 @@ else {
 	dropDownImage = '/images/iphone-dpb-1.png';
 	tableLeftSpace = 90;
 	titaniumLogo = '/images/titanium_logo_iphone.png';
-	tripDetailLabelWidth = deviceWidth*50/100;
+	tripDetailLabelWidth = deviceWidth * 50 / 100;
 }
 
 var imageInDatabase = false;
@@ -84,7 +101,7 @@ var paintView = Paint.createPaintView({
 	strokeWidth : 10,
 	eraseMode : false
 });
-// Activity Indicator 
+// Activity Indicator
 var activityInd = Titanium.UI.createActivityIndicator({
 	message : 'Loading...'
 });

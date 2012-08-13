@@ -25,17 +25,9 @@ var buttonBackSignatureForm = Titanium.UI.createButton({
 buttonBackSignatureForm.addEventListener('click', function(e) {
 	if (platform == 'android') {
 		try {
-			//    var fileName = 'Painting-' + new Date().getTime() + '.png';
-			//var fileName = 'Painting-1.png';
 
 			imageFile = Ti.Filesystem.getFile('file:///store/').exists() ? Ti.Filesystem.getFile('file:///store/', fileName) : Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, fileName);
 			imageFile.write(paintView.toImage().media);
-
-			//   image = paintView.toImage().media;
-
-			//     alert(paintView.toImage().media);
-			// 		digitalSign.image = paintView.toImage().media;
-
 			Ti.Media.Android.scanMediaFiles([imageFile.nativePath], null, saveSuccess);
 		} catch (err) {
 			saveFailure(err);
@@ -54,18 +46,10 @@ buttonBackSignatureForm.addEventListener('click', function(e) {
 
 function saveSuccess() {
 	Ti.API.info('Image saved Successfully');
-	/*  Ti.UI.createAlertDialog({
-	 title: 'Success',
-	 message: 'Your drawing was saved to the photo gallery.'
-	 }).show();*/
 }
 
 function saveFailure(err) {
 	Ti.API.info('Image could not be saved');
-	/*  Ti.UI.createAlertDialog({
-	 title: 'Failure',
-	 message: 'We had some trouble saving it: ' + err + '.'
-	 }).show();*/
 }
 
 var buttonClearSignatureForm = Titanium.UI.createButton({

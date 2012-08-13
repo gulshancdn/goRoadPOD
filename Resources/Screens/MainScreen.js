@@ -35,16 +35,24 @@ var viewTripButton = Titanium.UI.createButton({
 });
 //To open View Trip Screen
 viewTripButton.addEventListener('click', function(e) {
-
-	var tripDetailWindow = Titanium.UI.createWindow({
-		backgroundColor : 'white',
-		width : deviceWidth,
-		url : 'TripDetailScreen.js',
-		orientationModes : [1]
-	});
-
-	tripDetailWindow.open();
-
+	try {
+		var database = Ti.Database.install('/database/GoRoamPODDB.sqlite', 'GoRoamPODDB');
+		var tripRow = database.execute('SELECT * FROM Trip_Table');
+		if (tripRow.rowCount < 1) {
+			alert('Please start a trip');
+			return;
+		} else {
+			var tripDetailWindow = Titanium.UI.createWindow({
+				backgroundColor : 'white',
+				width : deviceWidth,
+				url : 'TripDetailScreen.js',
+				orientationModes : [1]
+			});
+			tripDetailWindow.open();
+		}
+	} catch(err) {
+		alert(err);
+	}
 });
 
 var endTripButton = Titanium.UI.createButton({
@@ -56,10 +64,24 @@ var endTripButton = Titanium.UI.createButton({
 });
 //
 endTripButton.addEventListener('click', function(e) {
-		Ti.App.Properties.removeProperty("CompanyCode");
-		Ti.App.Properties.removeProperty("UserName");
-		Ti.App.Properties.removeProperty("Password");
-		Ti.App.Properties.removeProperty("AutoLogin");
+	try {
+		var database = Ti.Database.install('/database/GoRoamPODDB.sqlite', 'GoRoamPODDB');
+		var tripRow = database.execute('SELECT * FROM Trip_Table');
+		if (tripRow.rowCount < 1) {
+			alert('Please start a trip');
+			return;
+		} else {
+			var db = Ti.Database.open('GoRoamPODDB');
+			db.execute('DELETE FROM  Trip_Table');
+			Ti.App.Properties.removeProperty("CompanyCode");
+			Ti.App.Properties.removeProperty("UserName");
+			Ti.App.Properties.removeProperty("Password");
+			Ti.App.Properties.removeProperty("AutoLogin");
+		}
+	} catch(err) {
+		alert(err);
+	}
+
 });
 
 var tabGroupHorizontalView = Titanium.UI.createView({
@@ -117,6 +139,19 @@ settingsLabel.addEventListener('click', function(e) {
 	settingsWindow.open();
 
 });
+/*try {
+ var database = Ti.Database.install('/database/GoRoamPODDB.sqlite', 'GoRoamPODDB');
+ var tripRow = database.execute('SELECT * FROM Trip_Table');
+ if (tripRow.rowCount < 1) {
+ viewTripButton.enabled = false;
+ endTripButton.enabled = false;
+ } else {
+ viewTripButton.enabled = true;
+ endTripButton.enabled = true;
+ }
+ } catch(err) {
+ alert(err);
+ }*/
 
 tabGroupHorizontalView.add(syncLabel);
 tabGroupHorizontalView.add(settingsLabel);

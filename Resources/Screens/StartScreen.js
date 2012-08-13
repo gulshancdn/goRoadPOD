@@ -168,41 +168,6 @@ var listTripsButton = Titanium.UI.createButton({
 	width : deviceWidth / 4,
 	title : 'List Trips'
 });
-/*var myData = [];
-
- myData[0] = Ti.UI.createTableViewRow({
- className : 'Order Number',
- backgroundFocusedColor : 'green'
- })
- var rowLabel = Ti.UI.createLabel({
- text : '2012-0715-90'
- })
- myData[0].add(rowLabel);
- myData[0].addEventListener('click', function(event) {
- var rowNumber = event.index;
- alert(rowNumber);
-
- });
- myData[1] = Ti.UI.createTableViewRow({
- className : 'Order Number',
- backgroundFocusedColor : 'green'
- })
- var rowLabel = Ti.UI.createLabel({
- text : '2012-0715-99'
- })
- myData[1].add(rowLabel);
- myData[1].addEventListener('click', function(event) {
- var rowNumber = event.index;
- alert(rowNumber);
- });*/
-
-/*var data = [{
- title : "2012-0715-90"
- }, {
- title : "2012-0715-99"
- }, {
- title : "2012-0716-12"
- }];*/
 
 var data = [];
 listTripsButton.addEventListener('click', function(e) {

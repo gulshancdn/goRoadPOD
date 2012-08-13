@@ -6,12 +6,18 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.031000 seconds on emulator to get ready
+[DEBUG] waited 0.016000 seconds on emulator to get ready
 [DEBUG] com.goroampod.app installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
+[TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\controller\Communicator.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\controller\Communicator.js
 [TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\controller\Controller.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\controller\Controller.js
+[TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\Constants.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\Constants.js
+[TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\MainScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\MainScreen.js
+[TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\SignatureForm.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\SignatureForm.js
+[TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\StartScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\StartScreen.js
+[TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\TripDetailScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\TripDetailScreen.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-land-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-hdpi\default.png

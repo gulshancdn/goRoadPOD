@@ -28,22 +28,22 @@ function doAction(action, params, callbck) {
 
 function loginCallback(response, statusCode, showInd) {
 	if ((response != null && response.trim().length > 0) || statusCode == '200') {
-		//alert(response + ' ' + statusCode);
 		if (showInd) {
 			activityInd.hide();
 		}
 		var parsedData = JSON.parse(response);
 		if (parsedData != null) {
 			try {
-				if (parsedData.d.status == 'OK') {
-					var win = Titanium.UI.createWindow({
-						backgroundColor : 'white',
-						width : deviceWidth,
-						url : '/Screens/MainScreen.js',
-						exitOnClose : true,
-						orientationModes : [1]
-					});
 
+				if (parsedData.d.status == 'OK') {
+					Ti.App.Properties.setString("CompanyCode", parsedData.d.authToken.CompanyCode);
+					Ti.App.Properties.setString("UserName", parsedData.d.authToken.UserName);
+					Ti.App.Properties.setString("Password", parsedData.d.authToken.Password);
+					Ti.App.Properties.setString("OrgRefId", parsedData.d.authToken.OrgRefId);
+					Ti.App.Properties.setString("UserRefId", parsedData.d.authToken.UserRefId);
+
+					// For Single instance of screen
+					var win = createMainWindow();
 					win.open();
 				} else {
 					alert(parsedData.d.messageData.Error);
@@ -57,8 +57,6 @@ function loginCallback(response, statusCode, showInd) {
 }
 
 function listTripsCallback(response, statusCode, showInd) {
-	//	alert(response + ' ' + statusCode);
-	//	return;
 	if ((response != null && response.trim().length > 0) || statusCode == '200') {
 		if (showInd) {
 			activityInd.hide();
@@ -69,10 +67,6 @@ function listTripsCallback(response, statusCode, showInd) {
 				if (parsedData.d.status == 'OK') {
 					var array = parsedData.d.messageData.trips;
 					returnback(array);
-					/*for(var i = 0;i<array.length;i++){
-					 //	alert(array[i].trip.tripRefId);
-					 //	alert(array[i].trip.tripCode);
-					 }*/
 				} else {
 					alert(parsedData.d.messageData.Error);
 				}
@@ -86,9 +80,6 @@ function listTripsCallback(response, statusCode, showInd) {
 
 function startTripCallback(response, statusCode, showInd) {
 	Ti.API.info(response);
-
-	//	alert(response + ' ' + statusCode);
-	//	return;
 	if ((response != null && response.trim().length > 0) || statusCode == '200') {
 		if (showInd) {
 			activityInd.hide();
@@ -110,15 +101,14 @@ function startTripCallback(response, statusCode, showInd) {
 					var tripArray = [trip_ref_id, trip_code, description, user_ref_id, first_name, last_name, start_time];
 					var rows = db.execute('SELECT * FROM Trip_Table');
 					var count = rows.rowCount;
-					if (count < 0) {
+
+					if (count < 1) {
 						db.execute('INSERT INTO Trip_Table (tripRefId, tripCode, desc, userRefId, fName, lName, startTime) VALUES(?, ?, ?, ?, ?, ?, ?)', tripArray);
-						//		db.execute('INSERT INTO Trip_Table (tripRefId, tripCode, desc, userRefId, fName, lName, startTime) VALUES(?, ?, ?, ?, ?, ?, ?)', tripArray);
 						//db.execute('DELETE FROM  Trip_Table');
 						var rows = db.execute('SELECT * FROM Trip_Table');
 						alert('rowscount ' + rows.rowCount);
 						while (rows.isValidRow()) {
 							alert("TripTable " + rows.field(0) + ' ' + rows.field(1) + ' ' + rows.field(2) + ' ' + rows.field(3) + ' ' + rows.field(4) + ' ' + rows.field(5) + ' ' + rows.field(6));
-							//alert(rows.fieldByName('tripRefId') + ', ' +rows.fieldByName('tripCode')+', ' +rows.fieldByName('desc')+', ' +rows.fieldByName('userRefId')+', ' +rows.fieldByName('fName')+','+rows.field('startTime')+', '+rows.fieldByName('lName'))
 							rows.next();
 						}
 						rows.close();
@@ -153,8 +143,6 @@ function startTripCallback(response, statusCode, showInd) {
 							alert('orderTableRow ' + orderTableRow.rowCount);
 							while (orderTableRow.isValidRow()) {
 								alert("OrderTable " + orderTableRow.field(0) + ' ' + orderTableRow.field(1) + ' ' + orderTableRow.field(2) + ' ' + orderTableRow.field(3) + ' ' + orderTableRow.field(4) + ' ' + orderTableRow.field(5) + ' ' + orderTableRow.field(6) + ' ' + orderTableRow.field(7) + ' ' + orderTableRow.field(8) + ' ' + orderTableRow.field(9) + ' ' + orderTableRow.field(10) + ' ' + orderTableRow.field(11) + ' ' + orderTableRow.field(12) + ' ' + orderTableRow.field(13) + ' ' + orderTableRow.field(14) + ' ' + orderTableRow.field(15) + ' ' + orderTableRow.field(16) + ' ' + orderTableRow.field(17));
-								//		alert(orderTableRow.field(0) + ' ' + orderTableRow.field(1) + ' ' + orderTableRow.field(2) + ' ' + orderTableRow.field(3) + ' ' + orderTableRow.field(4) + ' ' + orderTableRow.field(5) + ' ' + orderTableRow.field(6)+ ' ' + orderTableRow.field(7)+ ' ' + orderTableRow.field(8)+ ' ' + orderTableRow.field(9)+ ' ' + orderTableRow.field(10)+ ' ' + orderTableRow.field(11)+ ' ' + orderTableRow.field(12)+ ' ' + orderTableRow.field(13)+ ' ' + orderTableRow.field(14)+ ' ' + orderTableRow.field(15)+ ' ' + orderTableRow.field(16)+ ' ' + orderTableRow.field(17));
-								//alert(rows.fieldByName('tripRefId') + ', ' +rows.fieldByName('tripCode')+', ' +rows.fieldByName('desc')+', ' +rows.fieldByName('userRefId')+', ' +rows.fieldByName('fName')+','+rows.field('startTime')+', '+rows.fieldByName('lName'))
 								orderTableRow.next();
 							}
 							orderTableRow.close();
@@ -186,17 +174,61 @@ function startTripCallback(response, statusCode, showInd) {
 								orderDetailTableRow.close();
 							}
 						}
+						var loadArray = parsedData.d.messageData.trip.load;
+						var loadArrayLength = loadArray.length;
+						alert('loadArrayLength ' + loadArrayLength);
+						for (var k = 0; k < loadArrayLength; k++) {
+							var load_ref_id = loadArray[k].loadRefId;
+							alert(load_ref_id + " fgfdgdfg");
+							// trip_ref_id
+							var ticket_id = loadArray[k].ticketId;
+
+							var loadArrayForTable = [load_ref_id, trip_ref_id, ticket_id];
+							db.execute('INSERT INTO Load_Table (loadRefId, tripRefId, ticketId) VALUES(?, ?, ?)', loadArrayForTable);
+							var loadTableRows = db.execute('SELECT * FROM Load_Table');
+							alert('loadTableRowscount ' + loadTableRows.rowCount);
+							while (loadTableRows.isValidRow()) {
+								alert("loadTable " + loadTableRows.field(0) + ' ' + loadTableRows.field(1) + ' ' + loadTableRows.field(2));
+								loadTableRows.next();
+							}
+							loadTableRows.close();
+
+							var loadDetailArray = loadArray[k].detail;
+							var loadDetailArrayLength = loadDetailArray.length;
+							alert('loadDetailArrayLength ' + loadDetailArrayLength);
+							for (var l = 0; l < loadDetailArrayLength; l++) {
+								var detail_ref_id_load = loadDetailArray[l].detailRefId;
+								// load_ref_id
+								var item_ref_id_load = loadDetailArray[l].itemRefId;
+								var item_id_load = loadDetailArray[l].itemId;
+								var item_desc_load = loadDetailArray[l].itemDesc;
+								var net_qty_load = loadDetailArray[l].netQty;
+
+								var loadDetailArrayForTable = [detail_ref_id_load, load_ref_id, item_ref_id_load, item_id_load, item_desc_load, net_qty_load];
+								db.execute('INSERT INTO Load_Detail_Table(detailRefId, loadRefId, itemRefId, itemId, itemDesc, netQty) VALUES (?, ?, ?, ?, ?, ?)', loadDetailArrayForTable);
+
+								var loadDetailTableRow = db.execute('SELECT * FROM Load_Detail_Table');
+								alert('loadDetailTableRow ' + loadDetailTableRow.rowCount);
+
+								while (loadDetailTableRow.isValidRow()) {
+									alert("loadDetailTableRow " + loadDetailTableRow.field(0) + ' ' + loadDetailTableRow.field(1) + ' ' + loadDetailTableRow.field(2) + ' ' + loadDetailTableRow.field(3) + ' ' + loadDetailTableRow.field(4) + ' ' + loadDetailTableRow.field(5));
+									loadDetailTableRow.next();
+								}
+								loadDetailTableRow.close();
+							}
+						}
 					}
 					db.close();
+
 					var tripDetailWindow = Titanium.UI.createWindow({
 						backgroundColor : 'white',
 						width : deviceWidth,
 						url : 'TripDetailScreen.js',
 						orientationModes : [1],
-					//	data : parsedData
+						//	data : parsedData
 					});
 					tripDetailWindow.open();
-					
+
 				} else {
 					alert(parsedData.d.messageData.Error);
 				}
@@ -210,11 +242,9 @@ function startTripCallback(response, statusCode, showInd) {
 
 function verifyLoginCallback(response, statusCode, showInd) {
 	if ((response != null && response.trim().length > 0) || statusCode == '200') {
-		//	alert(response + ' ' + statusCode);
 		if (showInd) {
 			activityInd.hide();
 		}
-		//	return;
 		var parsedData = JSON.parse(response);
 		if (parsedData != null) {
 			try {

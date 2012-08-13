@@ -18,7 +18,7 @@ function getConnection(url, request, showInd, context) {
 		callback(this.responseText, this.status, context, true);
 	};
 	client.onerror = function() {
-		alert('Error Status =' + this.status + ' Response =' + this.responseText);
+		alert('Error in Connection, Status =' + this.status);
 		activityInd.hide();
 	};
 	/*if (showInd) {
@@ -39,7 +39,6 @@ function doLogin(params) {
 	a["InParam1"] = "";
 
 	var request = getJSONString(opcode, a, module, params);
-//	alert(request);
 	getConnection(url, request, true, LOGIN_CON);
 }
 
@@ -94,7 +93,6 @@ function verifyLogin(params) {
 	a["InParam1"] = "";
 
 	var request = getJSONString(opcode, a, module, params);
-//	alert(request);
 	getConnection(url, request, true, VERIFY_LOGIN_CON);
 }
 

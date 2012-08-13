@@ -1,14 +1,13 @@
 Titanium.include('Constants.js');
 Titanium.include('/controller/Controller.js');
 
-
 var win = Ti.UI.currentWindow;
 
 var logo = Titanium.UI.createImageView({
 	image : '/images/titanium_logo.png',
 	height : 50,
 	width : 50,
-	top : 20	
+	top : 20
 });
 
 var companyCodeHorizontalView = Titanium.UI.createView({
@@ -23,15 +22,15 @@ var companyCodeLabel = Titanium.UI.createLabel({
 	left : 20,
 	text : 'Company Code',
 	width : deviceWidth / 2 - 20,
-	height: 40,
+	height : 40,
 	color : '#000'
 });
 
 var companyCodeTF = Titanium.UI.createTextField({
 	top : textFieldTop,
-	height: buttonHeightForAll,
+	height : buttonHeightForAll,
 	width : deviceWidth / 2 - 20,
-	color: 'black',
+	color : 'black',
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED
 });
 
@@ -49,7 +48,7 @@ var userNameHorizontalView = Titanium.UI.createView({
 var userNameLabel = Titanium.UI.createLabel({
 	top : 15,
 	left : 20,
-	height: 40,
+	height : 40,
 	text : 'User Name',
 	width : deviceWidth / 2 - 20,
 	color : 'black',
@@ -58,7 +57,7 @@ var userNameLabel = Titanium.UI.createLabel({
 
 var userNameTF = Titanium.UI.createTextField({
 	top : textFieldTop,
-	height: buttonHeightForAll,
+	height : buttonHeightForAll,
 	width : deviceWidth / 2 - 20,
 	borderStyle : Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 });
@@ -77,7 +76,7 @@ var passwordHorizontalView = Titanium.UI.createView({
 var passwordLabel = Titanium.UI.createLabel({
 	top : 15,
 	left : 20,
-	height: 40,
+	height : 40,
 	text : 'Password',
 	width : deviceWidth / 2 - 20,
 	color : 'black'
@@ -85,7 +84,7 @@ var passwordLabel = Titanium.UI.createLabel({
 
 var passwordTF = Titanium.UI.createTextField({
 	top : textFieldTop,
-	height: buttonHeightForAll,
+	height : buttonHeightForAll,
 	width : deviceWidth / 2 - 20,
 	passwordMask : true,
 	borderStyle : Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
@@ -105,47 +104,42 @@ var autoLoginHorizontalView = Titanium.UI.createView({
 var autoLoginLabel = Titanium.UI.createLabel({
 	top : 15,
 	left : 20,
-	height: 40,
+	height : 40,
 	text : 'Auto Login',
 	width : deviceWidth / 2 - 20,
 	color : 'black'
 });
 
-
 /*var autoLoginCB = Titanium.UI.createSwitch({
-	//style : Titanium.UI.Android.SWITCH_STYLE_CHECKBOX,
-	value : false,
-	height: 50,
-	top : 5,
-	left : -deviceWidth / 80
-});*/
+ //style : Titanium.UI.Android.SWITCH_STYLE_CHECKBOX,
+ value : false,
+ height: 50,
+ top : 5,
+ left : -deviceWidth / 80
+ });*/
 
 var autoLoginCB = Titanium.UI.createImageView({
 	image : '/images/btn_check_off.png',
 	value : false,
 	height : buttonHeightForAll,
-	width :'auto',
+	width : 'auto',
 	top : textFieldTop,
 	left : checkBoxButtonLeft
 });
 
-autoLoginCB.addEventListener('click',function(e){
-	if(this.value == false)
-	{
+autoLoginCB.addEventListener('click', function(e) {
+	if (this.value == false) {
 		this.value = true;
 		this.image = '/images/btn_check_on.png';
 		return;
 	}
-	if(this.value == true)
-	{
+	if (this.value == true) {
 		this.value = false;
 		this.image = '/images/btn_check_off.png';
 		return;
 	}
-	
-	
-});
 
+});
 
 autoLoginHorizontalView.add(autoLoginLabel);
 autoLoginHorizontalView.add(autoLoginCB);
@@ -163,15 +157,16 @@ loginButton.addEventListener('click', function(e) {
 	params[0] = companyCodeTF.value;
 	params[1] = userNameTF.value;
 	params[2] = passwordTF.value;
+	Ti.App.Properties.setBool("AutoLogin", autoLoginCB.value);
 
+	if (params[0] == Ti.App.Properties.getString("CompanyCode") && params[1] == Ti.App.Properties.getString("UserName") && params[2] == Ti.App.Properties.getString("Password")) {
+		var win = createMainWindow();
+		win.open();
+	} else if (validateLogin(params[0], params[1], params[2])) {
 
-	if(validateLogin(params[0],params[1],params[2])){
-		
-		Ti.App.Properties.setString("CompanyCode",params[0]);
-		Ti.App.Properties.setString("UserName",params[1]);
-		Ti.App.Properties.setString("Password",params[2]);
-		Ti.App.Properties.setBool("AutoLogin",autoLoginCB.value);
-	//	parameters = params;
+		Ti.App.Properties.setString("CompanyCode", params[0]);
+		Ti.App.Properties.setString("UserName", params[1]);
+		Ti.App.Properties.setString("Password", params[2]);
 		doAction(ACTION_LOGIN, params);
 	}
 });
@@ -185,14 +180,13 @@ if (userNameLocalStorage != '') {
 	userNameTF.value = userNameLocalStorage;
 }
 /*var passwordLocalStorage = Ti.App.Properties.getString("Password");
-if (passwordLocalStorage != '') {
-	passwordTF.value = passwordLocalStorage;
-};
-var autoLoginStatus = Ti.App.Properties.getBool("AutoLogin");
-if(autoLoginStatus){
-	autoLoginCB.value = true;
-}*/
-
+ if (passwordLocalStorage != '') {
+ passwordTF.value = passwordLocalStorage;
+ };
+ var autoLoginStatus = Ti.App.Properties.getBool("AutoLogin");
+ if(autoLoginStatus){
+ autoLoginCB.value = true;
+ }*/
 
 win.add(logo);
 win.add(companyCodeHorizontalView);
@@ -201,26 +195,20 @@ win.add(passwordHorizontalView);
 win.add(autoLoginHorizontalView);
 win.add(loginButton);
 
-
-
-function validateLogin(companyCode, userName, password)
-{
-	if(companyCode != null && companyCode.trim().length > 0){
-		if(userName != null && userName.trim().length > 0){
-			if(password != null && password.trim().length > 0){
+function validateLogin(companyCode, userName, password) {
+	if (companyCode != null && companyCode.trim().length > 0) {
+		if (userName != null && userName.trim().length > 0) {
+			if (password != null && password.trim().length > 0) {
 				return true;
-			}else {
-				alert('Please enter Password.'); 
+			} else {
+				alert('Please enter Password.');
 			}
-		}else{
-			alert('Please enter User Name.'); 
+		} else {
+			alert('Please enter User Name.');
 		}
-	}else{
-			alert('Please enter Company Code.'); 
-		}
-		return false;
+	} else {
+		alert('Please enter Company Code.');
+	}
+	return false;
 }
-
-
-
 

@@ -3,13 +3,6 @@ Titanium.include('Constants.js');
 // To get current window
 var tripDetailWindow = Ti.UI.currentWindow;
 
-/*var tripDetailScrollView = Titanium.UI.createScrollView({
-contentWidth : 'auto',
-contentHeight : 'auto',
-top : headingHeight,
-showVerticalScrollIndicator : true,
-showHorizontalScrollIndicator : true
-});*/
 
 // Heading View
 var tripDetailHeading = Titanium.UI.createView({
