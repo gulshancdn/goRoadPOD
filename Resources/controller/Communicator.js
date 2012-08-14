@@ -18,7 +18,7 @@ function getConnection(url, request, showInd, context) {
 		callback(this.responseText, this.status, context, true);
 	};
 	client.onerror = function() {
-		alert('Error in Connection, Status =' + this.status);
+		alert('Check your network connection and try again!');
 		activityInd.hide();
 	};
 	/*if (showInd) {
@@ -65,6 +65,7 @@ function startTrip(params){
 	var vehicleId = params[1];
 	var odometer = params[2];
 	var notes = params[3];
+	var boolVariable = params[4];
 	
 	var url = DOMAIN_URL;
 	var opcode = 'StartTrip';
@@ -81,7 +82,7 @@ function startTrip(params){
 	param[2] = Ti.App.Properties.getString("Password");
 	
 	var request = getJSONString(opcode, a, module, param);
-	getConnection(url, request, true, _START_TRIP);
+	getConnection(url, request, boolVariable, _START_TRIP);
 }
 
 function verifyLogin(params) {

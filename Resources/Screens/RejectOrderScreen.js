@@ -2,6 +2,11 @@ Titanium.include('Constants.js');
 
 // To get current window
 var rejectOrderWindow = Ti.UI.currentWindow;
+if (platform == 'android') {
+	rejectOrderWindow.addEventListener('android:back', function(e) {
+		rejectOrderWindow.close();
+	});
+}
 // Heading View
 var rejectOrderViewHeading = Titanium.UI.createView({
 	top : 0,
@@ -49,6 +54,7 @@ rejectOrderViewHeading.add(headingRejectOrder);
 var reasonLabel = Titanium.UI.createLabel({
 	top : 10,
 	left : 25,
+	height : 'auto',
 	text : 'Reason',
 	color : 'black'
 });

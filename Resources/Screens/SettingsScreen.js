@@ -2,6 +2,12 @@ Titanium.include('Constants.js');
 Titanium.include('/controller/Controller.js');
 // To get current window
 var settingsWindow = Ti.UI.currentWindow;
+if (platform == 'android') {
+	settingsWindow.addEventListener('android:back', function(e) {
+		settingsWindow.close();
+	});
+}
+
 // Heading View
 var settingsViewHeading = Titanium.UI.createView({
 	top : 0,
@@ -141,21 +147,21 @@ var verifyButton = Titanium.UI.createButton({
 	width : deviceWidth / 4,
 	title : 'Verify'
 });
-verifyButton.addEventListener('click',function(e){
+verifyButton.addEventListener('click', function(e) {
 	var paramsForSettingScreen = new Array();
-	
+
 	paramsForSettingScreen[0] = companyCodeSettingsTF.value;
 	paramsForSettingScreen[1] = userNameSettingsTF.value;
 	paramsForSettingScreen[2] = passwordSettingsTF.value;
 	paramsForSettingScreen[3] = textAreaSettings.value;
-	
-	if(validateVerification(paramsForSettingScreen[0],paramsForSettingScreen[1],paramsForSettingScreen[2])){
-		
-		Ti.App.Properties.setString("Settings_CompanyCode",paramsForSettingScreen[0]);
-		Ti.App.Properties.setString("Settings_UserName",paramsForSettingScreen[1]);
-		Ti.App.Properties.setString("Settings_Password",paramsForSettingScreen[2]);
-		Ti.App.Properties.setString("Settings_Server_URL",paramsForSettingScreen[3]);
-		Ti.App.Properties.setBool("Setting_SSL",sslCB.value);
+
+	if (validateVerification(paramsForSettingScreen[0], paramsForSettingScreen[1], paramsForSettingScreen[2])) {
+
+		/*Ti.App.Properties.setString("Settings_CompanyCode",paramsForSettingScreen[0]);
+		 Ti.App.Properties.setString("Settings_UserName",paramsForSettingScreen[1]);
+		 Ti.App.Properties.setString("Settings_Password",paramsForSettingScreen[2]);*/
+		Ti.App.Properties.setString("Settings_Server_URL", paramsForSettingScreen[3]);
+		Ti.App.Properties.setBool("Setting_SSL", sslCB.value);
 
 		doAction(VERIFY_LOGIN, paramsForSettingScreen);
 	}
@@ -173,42 +179,39 @@ var logoutEndTripLabel = Titanium.UI.createLabel({
 	top : 10,
 	left : 10,
 	height : 'auto',
-	width : deviceWidth / 2 - 10 ,
+	width : deviceWidth / 2 - 10,
 	color : 'black'
 });
 
 /*var logoutCB = Titanium.UI.createSwitch({
-	style : Titanium.UI.Android.SWITCH_STYLE_CHECKBOX,
-	value : false,
-	left : -deviceWidth / 80,
-	width : deviceWidth / 2 - 20,
-	top : 5
-});*/
+ style : Titanium.UI.Android.SWITCH_STYLE_CHECKBOX,
+ value : false,
+ left : -deviceWidth / 80,
+ width : deviceWidth / 2 - 20,
+ top : 5
+ });*/
 
 var logoutCB = Titanium.UI.createImageView({
 	image : '/images/btn_check_off.png',
 	value : false,
 	height : buttonHeightForAll,
-	width :'auto',
+	width : 'auto',
 	top : textFieldTop,
 	left : checkBoxButtonLeft
 });
 
-logoutCB.addEventListener('click',function(e){
-	if(this.value == false)
-	{
+logoutCB.addEventListener('click', function(e) {
+	if (this.value == false) {
 		this.value = true;
 		this.image = '/images/btn_check_on.png';
 		return;
 	}
-	if(this.value == true)
-	{
+	if (this.value == true) {
 		this.value = false;
 		this.image = '/images/btn_check_off.png';
 		return;
 	}
-	
-	
+
 });
 logoutHorizontalView.add(logoutEndTripLabel);
 //logoutHorizontalView.add(logoutCB);
@@ -223,11 +226,11 @@ var serverURLLabel = Titanium.UI.createLabel({
 });
 
 var textAreaSettings = Titanium.UI.createTextArea({
-//	value : 'http://ss2.test.bizspeed.com/syncmobilesuitejson.asmx',
+	//	value : 'http://ss2.test.bizspeed.com/syncmobilesuitejson.asmx',
 	height : 70,
 	width : deviceWidth - 30,
 	top : 320,
-	borderColor :borderColorForTextArea
+	borderColor : borderColorForTextArea
 });
 
 var sslHorizontalView = Titanium.UI.createView({
@@ -247,7 +250,7 @@ var sslLabel = Titanium.UI.createLabel({
 });
 
 var sslCB = Titanium.UI.createSwitch({
-//	style : Titanium.UI.Android.SWITCH_STYLE_TOGGLEBUTTON,
+	//	style : Titanium.UI.Android.SWITCH_STYLE_TOGGLEBUTTON,
 	value : false,
 	left : checkBoxButtonLeft,
 	//	width:deviceWidth/2 - 20,
@@ -258,7 +261,6 @@ var sslCB = Titanium.UI.createSwitch({
 sslHorizontalView.add(sslLabel);
 sslHorizontalView.add(sslCB);
 
-
 var companyCodeLocalStorage_setting = Ti.App.Properties.getString("Settings_CompanyCode");
 if (companyCodeLocalStorage_setting != '') {
 	companyCodeSettingsTF.value = companyCodeLocalStorage_setting;
@@ -268,9 +270,9 @@ if (userNameLocalStorage_setting != '') {
 	userNameSettingsTF.value = userNameLocalStorage_setting;
 }
 /*var passwordLocalStorage_setting = Ti.App.Properties.getString("Settings_Password");
-if (passwordLocalStorage_setting != '') {
-	passwordSettingsTF.value = passwordLocalStorage_setting;
-};*/
+ if (passwordLocalStorage_setting != '') {
+ passwordSettingsTF.value = passwordLocalStorage_setting;
+ };*/
 var textArea_setting = Ti.App.Properties.getString("Settings_Server_URL");
 if (textArea_setting != '') {
 	textAreaSettings.value = textArea_setting;
@@ -293,20 +295,19 @@ scrollViewSettings.add(sslHorizontalView);
 settingsWindow.add(settingsViewHeading);
 settingsWindow.add(scrollViewSettings);
 
-function validateVerification(companyCode, userName, password)
-{
-	if(companyCode != null && companyCode.trim().length > 0){
-		if(userName != null && userName.trim().length > 0){
-			if(password != null && password.trim().length > 0){
+function validateVerification(companyCode, userName, password) {
+	if (companyCode != null && companyCode.trim().length > 0) {
+		if (userName != null && userName.trim().length > 0) {
+			if (password != null && password.trim().length > 0) {
 				return true;
-			}else {
-				alert('Please enter Password.'); 
+			} else {
+				alert('Please enter Password.');
 			}
-		}else{
-			alert('Please enter User Name.'); 
+		} else {
+			alert('Please enter User Name.');
 		}
-	}else{
-			alert('Please enter Company Code.'); 
-		}
-		return false;
+	} else {
+		alert('Please enter Company Code.');
+	}
+	return false;
 }

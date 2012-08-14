@@ -1,6 +1,11 @@
 Titanium.include('Constants.js');
 // To get current window
 var signatureFormWindow = Ti.UI.currentWindow;
+if (platform == 'android') {
+	signatureFormWindow.addEventListener('android:back', function(e) {
+		signatureFormWindow.close();
+	});
+}
 // Heading View
 var signatureFormHeading = Titanium.UI.createView({
 	top : 0,

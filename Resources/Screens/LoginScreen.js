@@ -2,7 +2,11 @@ Titanium.include('Constants.js');
 Titanium.include('/controller/Controller.js');
 
 var win = Ti.UI.currentWindow;
-
+if (platform == 'android') {
+	win.addEventListener('android:back', function(e) {
+		win.close();
+	});
+}
 var logo = Titanium.UI.createImageView({
 	image : '/images/titanium_logo.png',
 	height : 50,
@@ -163,10 +167,6 @@ loginButton.addEventListener('click', function(e) {
 		var win = createMainWindow();
 		win.open();
 	} else if (validateLogin(params[0], params[1], params[2])) {
-
-		Ti.App.Properties.setString("CompanyCode", params[0]);
-		Ti.App.Properties.setString("UserName", params[1]);
-		Ti.App.Properties.setString("Password", params[2]);
 		doAction(ACTION_LOGIN, params);
 	}
 });

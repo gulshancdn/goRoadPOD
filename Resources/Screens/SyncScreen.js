@@ -1,6 +1,11 @@
 Titanium.include('Constants.js');
 // To get current window
 var syncWindow = Ti.UI.currentWindow;
+if (platform == 'android') {
+	syncWindow.addEventListener('android:back', function(e) {
+		syncWindow.close();
+	});
+}
 // Heading View
 var syncViewHeading = Titanium.UI.createView({
 	top : 0,

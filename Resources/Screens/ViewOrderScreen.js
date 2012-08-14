@@ -2,7 +2,11 @@ Titanium.include('Constants.js');
 
 // To get current window
 var viewOrderWindow = Ti.UI.currentWindow;
-
+if (platform == 'android') {
+	viewOrderWindow.addEventListener('android:back', function(e) {
+		viewOrderWindow.close();
+	});
+}
 // To get order array
 //var ddata = viewOrderWindow.ddata;
 

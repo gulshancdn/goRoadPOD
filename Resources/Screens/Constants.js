@@ -15,7 +15,7 @@ function createMainWindow() {
 		backgroundColor : 'white',
 		width : deviceWidth,
 		url : '/Screens/MainScreen.js',
-		exitOnClose : true,
+	//	exitOnClose : true,
 		orientationModes : [1]
 	});
 
@@ -32,8 +32,9 @@ if (platform == 'android') {
 	headingLeftSpaceForShortHeadings = 120;
 	headingLeftSpaceForMedHeadings = 140;
 	checkBoxButtonLeft = 0;
-	//tableHeight = 260;
-	tableHeight = Ti.UI.SIZE;
+	tableHeight = 220;
+	// 260
+	//tableHeight = Ti.UI.SIZE;
 	sslLabelTop = 25;
 	borderColorForTextArea = 'transparent';
 	buttonHeightForAll = 50;
@@ -50,6 +51,7 @@ if (platform == 'android') {
 	}
 	tableLeftSpace = 5;
 	titaniumLogo = '/images/titanium_logo.png';
+	leftSpaceForEditOrder = 10;
 }
 // Some parameters for iphone platform
 else {
@@ -69,6 +71,7 @@ else {
 	tableLeftSpace = 90;
 	titaniumLogo = '/images/titanium_logo_iphone.png';
 	tripDetailLabelWidth = deviceWidth * 50 / 100;
+	leftSpaceForEditOrder = 50;
 }
 
 var imageInDatabase = false;

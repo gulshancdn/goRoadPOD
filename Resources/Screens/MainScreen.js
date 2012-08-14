@@ -2,7 +2,11 @@ Titanium.include('Constants.js');
 
 // To get current window
 var win = Ti.UI.currentWindow;
-
+if (platform == 'android') {
+	win.addEventListener('android:back', function(e) {
+		win.close();
+	});
+}
 // To add Start, View and End Trip Button
 var buttonViewMainScreen = Titanium.UI.createView({
 	layout : 'vertical'
@@ -50,6 +54,8 @@ viewTripButton.addEventListener('click', function(e) {
 			});
 			tripDetailWindow.open();
 		}
+		tripRow.close();
+		database.close();
 	} catch(err) {
 		alert(err);
 	}
@@ -73,11 +79,18 @@ endTripButton.addEventListener('click', function(e) {
 		} else {
 			var db = Ti.Database.open('GoRoamPODDB');
 			db.execute('DELETE FROM  Trip_Table');
-			Ti.App.Properties.removeProperty("CompanyCode");
-			Ti.App.Properties.removeProperty("UserName");
-			Ti.App.Properties.removeProperty("Password");
-			Ti.App.Properties.removeProperty("AutoLogin");
+			db.execute('DELETE FROM  Order_Table');
+			db.execute('DELETE FROM  Order_Detail_Table');
+			db.execute('DELETE FROM  Load_Table');
+			db.execute('DELETE FROM  Load_Detail_Table');
+			alert('Your trip has been ended successfully.')
+			/*	Ti.App.Properties.removeProperty("CompanyCode");
+			 Ti.App.Properties.removeProperty("UserName");
+			 Ti.App.Properties.removeProperty("Password");
+			 Ti.App.Properties.removeProperty("AutoLogin");*/
 		}
+		tripRow.close();
+		database.close();
 	} catch(err) {
 		alert(err);
 	}
@@ -133,7 +146,8 @@ settingsLabel.addEventListener('click', function(e) {
 	var settingsWindow = Titanium.UI.createWindow({
 		backgroundColor : 'white',
 		width : deviceWidth,
-		url : 'SettingsScreen.js'
+		url : 'SettingsScreen.js',
+
 	});
 
 	settingsWindow.open();

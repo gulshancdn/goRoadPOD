@@ -1,6 +1,11 @@
 Titanium.include('Constants.js');
 // To get current window
 var editItemWindow = Ti.UI.currentWindow;
+if (platform == 'android') {
+	editItemWindow.addEventListener('android:back', function(e) {
+		editItemWindow.close();
+	});
+}
 // Heading View
 var editItemViewHeading = Titanium.UI.createView({
 	top : 0,

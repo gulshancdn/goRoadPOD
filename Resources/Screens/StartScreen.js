@@ -3,7 +3,11 @@ Titanium.include('/controller/Controller.js');
 
 // To get current window
 var startWindow = Ti.UI.currentWindow;
-
+if (platform == 'android') {
+	startWindow.addEventListener('android:back', function(e) {
+		startWindow.close();
+	});
+}
 var selectedTrip = '';
 // To get changed date by user from date picker
 var changeDate = new Date();
@@ -195,8 +199,8 @@ listTripsButton.addEventListener('click', function(e) {
 	//	params[1] = "/Date(1343880000000-0400)/";
 	params[1] = ddForRequest;
 	doAction(LIST_TRIPS, params, function(back) {
-			/*alert("Callback Return :\n" + back);
-			return;*/
+		/*alert("Callback Return :\n" + back);
+		 return;*/
 		if (back.length > 0) {
 			for (var i = 0; i < back.length; i++) {
 				data[i] = {
@@ -336,9 +340,9 @@ selectTripView.add(table);
 /* Pop up Code ends here */
 
 /*var dialog = Titanium.UI.createOptionDialog({
- androidView : selectTripView,
- cancel : 1
- });*/
+androidView : selectTripView,
+cancel : 1
+});*/
 
 // To set background when pop up open
 var translucent = Titanium.UI.createView({
@@ -474,6 +478,20 @@ var startButton = Titanium.UI.createButton({
 });
 
 startButton.addEventListener('click', function(e) {
+	// To open database
+	var database = Ti.Database.install('/database/GoRoamPODDB.sqlite', 'GoRoamPODDB');
+	var tripRow = database.execute('SELECT * FROM Trip_Table');
+	var rowCount = tripRow.rowCount;
+	tripRow.close();
+	database.close();
+	if (rowCount > 0) {
+		alertDialogForCurrentTrip.show();
+	} else {
+		startTripFunction(true);
+	}
+
+});
+function startTripFunction(booleanForShowIndicator) {
 	var param = new Array();
 	//param[0] = "313B89EF-7ACD-4A5E-8BA3-9E7D977ABE89";
 	//	param[1] = "1001";
@@ -505,12 +523,34 @@ startButton.addEventListener('click', function(e) {
 		param[2] = odometerVehicleTF.value;
 	}
 	param[3] = textArea.value;
+	param[4] = booleanForShowIndicator;
 
 	doAction(START_TRIP, param);
+}
 
+var alertDialogForCurrentTrip = Titanium.UI.createAlertDialog({
+	message : 'Only one trip can be active at once. Do you want to cancel the current trip and start a new one?',
+	buttonNames : ['Yes', 'No']
 });
 
-// Dialog(View) to add dull background and Popup 
+alertDialogForCurrentTrip.addEventListener('click', function(e) {
+	if (e.index == 0) {
+		activityInd.show();
+		var db = Ti.Database.open('GoRoamPODDB');
+		db.execute('DELETE FROM  Trip_Table');
+		db.execute('DELETE FROM  Order_Table');
+		db.execute('DELETE FROM  Order_Detail_Table');
+		db.execute('DELETE FROM  Load_Table');
+		db.execute('DELETE FROM  Load_Detail_Table');
+		db.close();
+		startTripFunction(false);
+
+	} else if (e.index == 1) {
+		// Do Nothing
+	}
+});
+
+// Dialog(View) to add dull background and Popup
 dialog.add(translucent);
 dialog.add(selectTripView);
 

@@ -1,6 +1,11 @@
 Titanium.include('Constants.js');
 // To get current window
 var editOrderWindow = Ti.UI.currentWindow;
+if (platform == 'android') {
+	editOrderWindow.addEventListener('android:back', function(e) {
+		editOrderWindow.close();
+	});
+}
 // Heading View
 var editOrderViewHeading = Titanium.UI.createView({
 	top : 0,
@@ -8,7 +13,6 @@ var editOrderViewHeading = Titanium.UI.createView({
 	width : deviceWidth,
 	layout : 'horizontal',
 	backgroundColor : 'gray',
-	borderColor : 'black',
 	borderWidth : 1
 });
 // Back Button
@@ -246,30 +250,30 @@ for (var i = 0; i < 5; i++) {
 		left : 20,
 		top : 10
 	});*/
-	var editOrderVerticalView = Titanium.UI.createView({
+	/*var editOrderVerticalView = Titanium.UI.createView({
 		height : 50,
 		layout : 'vertical',
 		top : 0,
 		left : 15,
 		width : deviceWidth - 125
-	});
+	});*/
 	var orderLabel = Titanium.UI.createLabel({
 		top : 0,
-		left : 0,
+		left : leftSpaceForEditOrder,
 		height : 25,
 		text : '621: White Oil Base',
 		color : 'black'
 	});
 	var companyLabel = Titanium.UI.createLabel({
-		top : 0,
-		left : 0,
+		top : 20,
+		left : leftSpaceForEditOrder,
 		height : 25,
 		text : 'Order: 30	del: 100 EA',
 		color : 'black'
 	});
 
-	editOrderVerticalView.add(orderLabel);
-	editOrderVerticalView.add(companyLabel);
+	//editOrderVerticalView.add(orderLabel);
+	//editOrderVerticalView.add(companyLabel);
 
 	/*var arrowIcon = Titanium.UI.createImageView({
 		//	image : '/images/arrow.png',
@@ -288,9 +292,14 @@ for (var i = 0; i < 5; i++) {
 		className : i,
 	//	hasDetail : true,
 		leftImage : '/images/tick-mark-yes_small.png',
-		rightImage :'/images/expander_ic_minimized_small.png'
+		rightImage :'/images/expander_ic_minimized_small.png',
+		backgroundColor : 'gray',
+		color : 'white'
 	});
-	datasForEditOrder[i].add(editOrderVerticalView)
+	//datasForEditOrder[i].add(editOrderVerticalView)
+	
+	datasForEditOrder[i].add(orderLabel)
+	datasForEditOrder[i].add(companyLabel)
 	
 	datasForEditOrder[i].addEventListener('click', function(e) {
 		var editItemWindow = Titanium.UI.createWindow({

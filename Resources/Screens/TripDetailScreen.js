@@ -2,8 +2,11 @@ Titanium.include('Constants.js');
 
 // To get current window
 var tripDetailWindow = Ti.UI.currentWindow;
-
-
+if (platform == 'android') {
+	tripDetailWindow.addEventListener('android:back', function(e) {
+		tripDetailWindow.close();
+	});
+}
 // Heading View
 var tripDetailHeading = Titanium.UI.createView({
 	top : 0,
@@ -27,7 +30,9 @@ var buttonBacktripDetail = Titanium.UI.createButton({
 });
 // To close current window
 buttonBacktripDetail.addEventListener('click', function(e) {
-	tripDetailWindow.close();
+	//tripDetailWindow.close();
+	var win = createMainWindow();
+	win.open();
 });
 // Heading text
 var headingtripDetail = Titanium.UI.createLabel({
@@ -65,17 +70,17 @@ try {
 	var i = 0;
 	//	for (var i = 0; i < arrayLength; i++) {
 	while (orderTableRows.isValidRow()) {
-		var tripDetailVerticalView = Titanium.UI.createView({
+		/*var tripDetailVerticalView = Titanium.UI.createView({
 			height : 100,
 			layout : 'vertical',
 			top : 0,
 			left : tableLeftSpace,
 			width : deviceWidth * 80 / 100
-		});
+		});*/
 		var orderLabel = Titanium.UI.createLabel({
 			top : 0,
 			height : 25,
-			left : 0,
+			left : tableLeftSpace,
 			text : 'Order: ' + orderTableRows.fieldByName('orderNo'),
 			//	text : 'Order: ' + orderArray[i].orderNo,
 			ellipsize : true,
@@ -84,9 +89,9 @@ try {
 			width : tripDetailLabelWidth
 		});
 		var companyLabel = Titanium.UI.createLabel({
-			top : 0,
+			top : 20,
 			height : 25,
-			left : 0,
+			left : tableLeftSpace,
 			text : orderTableRows.fieldByName('custName'),
 			//	text : orderArray[i].custName,
 			ellipsize : true,
@@ -95,9 +100,9 @@ try {
 			width : tripDetailLabelWidth
 		});
 		var addressLabel = Titanium.UI.createLabel({
-			top : 0,
+			top : 40,
 			height : 25,
-			left : 0,
+			left : tableLeftSpace,
 			text : orderTableRows.fieldByName('addr1'),
 			//	text : orderArray[i].addr1,
 			ellipsize : true,
@@ -119,9 +124,9 @@ try {
 		var time = hours + ":" + minutes + " " + str;
 		//alert(time);
 		var timeLabel = Titanium.UI.createLabel({
-			top : 0,
+			top : 60,
 			height : 25,
-			left : 0,
+			left : tableLeftSpace,
 			text : 'ETA: ' + time,
 			ellipsize : true,
 			wordWrap : false,
@@ -129,10 +134,10 @@ try {
 			width : tripDetailLabelWidth
 		});
 
-		tripDetailVerticalView.add(orderLabel);
+		/*tripDetailVerticalView.add(orderLabel);
 		tripDetailVerticalView.add(companyLabel);
 		tripDetailVerticalView.add(addressLabel);
-		tripDetailVerticalView.add(timeLabel);
+		tripDetailVerticalView.add(timeLabel);*/
 
 		// TableViewRow to add rows in table
 		datas[i] = Ti.UI.createTableViewRow({
@@ -143,7 +148,12 @@ try {
 			leftImage : titaniumLogo,
 			rightImage : '/images/expander_ic_minimized.png'
 		});
-		datas[i].add(tripDetailVerticalView)
+	//	datas[i].add(tripDetailVerticalView)
+		
+		datas[i].add(orderLabel)
+		datas[i].add(companyLabel)
+		datas[i].add(addressLabel)
+		datas[i].add(timeLabel)
 
 		// Open View Order Screen on click of TableViewRow
 		datas[i].addEventListener('click', function(e) {
