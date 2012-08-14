@@ -6,7 +6,8 @@ var w = Titanium.UI.createWindow({
 	backgroundColor : 'white',
 	width : deviceWidth,
 	layout : 'vertical',
-//	exitOnClose : true,
+	exitOnClose : true,
+	modal : modalValue,
 	orientationModes : [1]
 });
 

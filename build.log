@@ -1,79 +1,15 @@
 Logfile initialized
 [INFO] logfile = D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build.log
-[DEBUG] C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\builder.py simulator goRoamPOD D:\Nidhi_Gupta\Setup\android-sdk-windows D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD com.goroampod.app 1 HVGA
-[INFO] Building goRoamPOD for Android ... one moment
+[DEBUG] C:\Documents and Settings\nidhigupta\Application Data\Titanium\mobilesdk\win32\2.1.0.GA\android\builder.py install goRoamPOD D:\Nidhi_Gupta\Setup\android-sdk-windows D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD com.goroampod.app 2
 [INFO] Titanium SDK version: 2.1.0 (06/28/12 12:16 6e3cab6)
 [DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 0 devices/emulators
-[DEBUG] D:\Nidhi_Gupta\Setup\android-sdk-windows\tools\emulator.exe -avd titanium_1_HVGA -port 5560 -sdcard "C:\Documents and Settings\nidhigupta\.titanium\titanium_1_HVGA.sdcard" -logcat *:d,*,TiAPI:V -no-boot-anim -partition-size 128
-[DEBUG] signal caught: 3
-[DEBUG] calling emulator kill on 2844
-[TRACE] adb devices returned 0 devices/emulators
-[TRACE] adb devices returned 0 devices/emulators
-[TRACE] adb devices returned 0 devices/emulators
-[TRACE] adb devices returned 0 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 75 seconds)
-[DEBUG] waited 76.922000 seconds on emulator to get ready
-[INFO] Waiting for the Android Emulator to become available
-[DEBUG] com.goroampod.app installed? True
-[WARN] Fastdev enabled, but server isn't running, deploying normally
+[TRACE] adb devices returned 2 devices/emulators
+[DEBUG] Device connected... (waited 0 seconds)
+[DEBUG] waited 0.031000 seconds on emulator to get ready
+[DEBUG] com.goroampod.app installed? False
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[INFO] Detected change in tiapp.xml, or assets deleted. Forcing full re-build...
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\appicon.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\appicon.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\default.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\default.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Thumbs.db
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\app.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\app.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\controller\Communicator.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\controller\Communicator.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\controller\Controller.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\controller\Controller.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\database\GoRoamPODDB.sqlite => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\database\GoRoamPODDB.sqlite
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\android-dpb-1.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\android-dpb-1.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\arrow.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\arrow.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\bigdropdown.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\bigdropdown.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\bigdropdown1.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\bigdropdown1.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_check_off.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_check_off.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_check_on.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_check_on.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_dropdown_disabled.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_dropdown_disabled.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_dropdown_normal.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_dropdown_normal.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\btn_dropdown_normal_new.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\btn_dropdown_normal_new.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\expander_ic_minimized.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\expander_ic_minimized.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\expander_ic_minimized_small.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\expander_ic_minimized_small.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\iphone-dpb-1.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\iphone-dpb-1.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\iphone-dpb-2.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\iphone-dpb-2.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\picker.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\picker.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\Thumbs.db
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\tick-mark-no.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\tick-mark-no.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\tick-mark-yes.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\tick-mark-yes.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\tick-mark-yes_small.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\tick-mark-yes_small.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\titanium_logo.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\titanium_logo.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\titanium_logo_iphone.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\titanium_logo_iphone.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\images\titanium_logo_small.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\images\titanium_logo_small.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\KS_nav_ui.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\KS_nav_ui.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\KS_nav_views.png => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\KS_nav_views.png
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\Constants.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\Constants.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\EditItemScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\EditItemScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\EditOrderScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\EditOrderScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\LoginScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\LoginScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\MainScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\MainScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\RejectOrderScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\RejectOrderScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\SettingsScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\SettingsScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\SignatureForm.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\SignatureForm.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\StartScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\StartScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\SyncScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\SyncScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\TripDetailScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\TripDetailScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\ViewOrderScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\ViewOrderScreen.js
-[TRACE] COPYING CREATED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\util\jsonSerializable.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\util\jsonSerializable.js
+[TRACE] COPYING MODIFIED FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\Screens\ViewOrderScreen.js => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\Screens\ViewOrderScreen.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-hdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-long-land-hdpi\thumbs_2c5499c213.db
@@ -86,7 +22,6 @@ Logfile initialized
 [TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-hdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-hdpi\thumbs_2c5499c213.db
 [TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-ldpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-ldpi\thumbs_2c5499c213.db
 [TRACE] COPYING FILE: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-mdpi\Thumbs.db => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-mdpi\thumbs_2c5499c213.db
-[DEBUG] app stylesheet => D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\ApplicationStylesheet.java
 [DEBUG] copying app icon: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\appicon.png
 [DEBUG] generating theme.xml
 [DEBUG] found drawable-long-land-hdpi splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-long-land-hdpi\default.png
@@ -111,13 +46,11 @@ Logfile initialized
 [DEBUG] copying D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\Resources\android\images\res-notlong-port-mdpi\default.png splash screen to D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\res\drawable-notlong-port-mdpi\background.png
 [DEBUG] found splash screen at D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\assets\Resources\default.png
 [TRACE] Writing out AndroidManifest.xml
-[DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\ApplicationStylesheet.java to javac build list
 [DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\GoroampodActivity.java to javac build list
 [DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\GoroampodAppInfo.java to javac build list
 [DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\GoroampodApplication.java to javac build list
 [DEBUG] adding D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\gen\com\goroampod\app\R.java to javac build list
-[DEBUG] Building Java Sources: "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\ApplicationStylesheet.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodActivity.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodAppInfo.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodApplication.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\R.java"
-[INFO] Waiting for SDCard to become available..
+[DEBUG] Building Java Sources: "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodActivity.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodAppInfo.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\GoroampodApplication.java" "D:\\Nidhi_Gupta\\TitaniumWorkspace\\goRoamPOD\\build\\android\\gen\\com\\goroampod\\app\\R.java"
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\build\android\bin\app-unsigned.apk
@@ -214,11 +147,8 @@ Logfile initialized
 [DEBUG] installing native lib: D:\Nidhi_Gupta\TitaniumWorkspace\goRoamPOD\modules\Android\ti.paint\2.0.1\libs\armeabi-v7a\libti.paint.so
 [DEBUG] installing native SDK libs
 [DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.015000 seconds on emulator to get ready
-[INFO] Installing application on emulator
-[INFO] Launching application ... goRoamPOD
-[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.goroampod.app/.GoroampodActivity }
-
-[INFO] Deployed goRoamPOD ... Application should be running.
+[DEBUG] waited 0.031000 seconds on emulator to get ready
+[INFO] Installing application on device
+[INFO] Application installed. Launch from drawer on Home Screen

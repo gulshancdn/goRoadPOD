@@ -6,7 +6,7 @@ var deviceHeight = Titanium.Platform.displayCaps.platformHeight;
 var platform = Ti.Platform.name;
 
 var mainWindow = null;
-
+// For the single instance of Main Screen
 function createMainWindow() {
 	if (mainWindow != null) {
 		return mainWindow;
@@ -15,7 +15,8 @@ function createMainWindow() {
 		backgroundColor : 'white',
 		width : deviceWidth,
 		url : '/Screens/MainScreen.js',
-	//	exitOnClose : true,
+		modal : modalValue,
+		exitOnClose : true,
 		orientationModes : [1]
 	});
 
@@ -32,9 +33,9 @@ if (platform == 'android') {
 	headingLeftSpaceForShortHeadings = 120;
 	headingLeftSpaceForMedHeadings = 140;
 	checkBoxButtonLeft = 0;
-	tableHeight = 220;
+	//tableHeight = 220;
 	// 260
-	//tableHeight = Ti.UI.SIZE;
+	tableHeight = Ti.UI.SIZE;
 	sslLabelTop = 25;
 	borderColorForTextArea = 'transparent';
 	buttonHeightForAll = 50;
@@ -52,6 +53,7 @@ if (platform == 'android') {
 	tableLeftSpace = 5;
 	titaniumLogo = '/images/titanium_logo.png';
 	leftSpaceForEditOrder = 10;
+	modalValue = true;
 }
 // Some parameters for iphone platform
 else {
@@ -72,6 +74,7 @@ else {
 	titaniumLogo = '/images/titanium_logo_iphone.png';
 	tripDetailLabelWidth = deviceWidth * 50 / 100;
 	leftSpaceForEditOrder = 50;
+	modalValue = false;
 }
 
 var imageInDatabase = false;

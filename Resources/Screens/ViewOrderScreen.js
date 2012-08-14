@@ -7,8 +7,30 @@ if (platform == 'android') {
 		viewOrderWindow.close();
 	});
 }
-// To get order array
-//var ddata = viewOrderWindow.ddata;
+
+// To get order number on which user has clicked.
+var orderNumber = viewOrderWindow.data;
+var custName = '';
+var address = '';
+
+try {
+
+	var database = Ti.Database.open('GoRoamPODDB');
+	var tripRow = database.execute('SELECT * FROM Trip_Table');
+	var tripRefIdFromTripRow;
+	while (tripRow.isValidRow()) {
+		tripRefIdFromTripRow = tripRow.field(0);
+		tripRow.next();
+	}
+	tripRow.close();
+	var orderTableRows = database.execute('SELECT * FROM Order_Table WHERE orderNo = "' + orderNumber + '" AND tripRefId = "' + tripRefIdFromTripRow + '"');
+	custName = orderTableRows.fieldByName('custName');
+	address = orderTableRows.fieldByName('addr1');
+	orderTableRows.close();
+	database.close();
+} catch(err) {
+	alert(err);
+}
 
 // Heading View
 var viewOrderHeading = Titanium.UI.createView({
@@ -64,14 +86,6 @@ var scrollViewForViewOrder = Titanium.UI.createScrollView({
 	layout : 'vertical'
 });
 
-/*var orderHorizontalView = Titanium.UI.createView({
-	top : 10,
-	//	height : 55,
-	height : 55,
-	width : deviceWidth,
-	layout : 'horizontal'
-});*/
-
 var orderLabel = Titanium.UI.createLabel({
 	top : 5,
 	left : 20,
@@ -83,24 +97,18 @@ var orderLabel = Titanium.UI.createLabel({
 
 var orderValueLabel = Titanium.UI.createLabel({
 	top : 5,
+	left : 120,
 	height : 'auto',
 	//left:deviceWidth/8,
-	//text : ddata.orderNo,
-	width : deviceWidth / 2 - 35,
+	text : orderNumber,
+	width : 'auto',
+	//width : deviceWidth / 2 - 35,
 	color : 'black'
 });
 
 /*// Adding order label and value in order horizontal view
-orderHorizontalView.add(orderLabel);
-orderHorizontalView.add(orderValueLabel);*/
-
-/*var customerHorizontalView = Titanium.UI.createView({
-	top : 10,
-	//	height : 65,
-	height : 55,
-	width : deviceWidth,
-	layout : 'horizontal'
-});*/
+ orderHorizontalView.add(orderLabel);
+ orderHorizontalView.add(orderValueLabel);*/
 
 var customerLabel = Titanium.UI.createLabel({
 	top : 5,
@@ -114,23 +122,17 @@ var customerLabel = Titanium.UI.createLabel({
 
 var customerValueLabel = Titanium.UI.createLabel({
 	top : 5,
+	left : 120,
 	//	left:deviceWidth/8,
-	//text : ddata.addr1,
+	text : custName,
 	height : 'auto',
-	width : deviceWidth / 2 - 35,
+	width : 'auto',
+	//width : deviceWidth / 2 - 35,
 	color : 'black'
 });
 /*// Adding customer label and value in customer horizontal view
-customerHorizontalView.add(customerLabel);
-customerHorizontalView.add(customerValueLabel);*/
-
-/*var phoneHorizontalView = Titanium.UI.createView({
-	top : 20,
-	//	height : 55,
-	height : 55,
-	width : deviceWidth,
-	layout : 'horizontal'
-});*/
+ customerHorizontalView.add(customerLabel);
+ customerHorizontalView.add(customerValueLabel);*/
 
 var phoneLabel = Titanium.UI.createLabel({
 	top : 5,
@@ -143,23 +145,17 @@ var phoneLabel = Titanium.UI.createLabel({
 
 var phoneValueLabel = Titanium.UI.createLabel({
 	top : 5,
+	left : 120,
 	//	left:deviceWidth/8,
 	text : '678-555-1234',
 	height : 'auto',
-	width : deviceWidth / 2 - 35,
+	width : 'auto',
+	//width : deviceWidth / 2 - 35,
 	color : 'black'
 });
 /*// Adding phone label and value in phone horizontal view
-phoneHorizontalView.add(phoneLabel);
-phoneHorizontalView.add(phoneValueLabel);*/
-
-/*var contactHorizontalView = Titanium.UI.createView({
-	top : 10,
-	//	height : 55,
-	height : 55,
-	width : deviceWidth,
-	layout : 'horizontal'
-});*/
+ phoneHorizontalView.add(phoneLabel);
+ phoneHorizontalView.add(phoneValueLabel);*/
 
 var contactLabel = Titanium.UI.createLabel({
 	top : 5,
@@ -172,10 +168,12 @@ var contactLabel = Titanium.UI.createLabel({
 
 var contactValueLabel = Titanium.UI.createLabel({
 	top : 5,
+	left : 120,
 	//	left:deviceWidth/8,
-	//text : ddata.custName,
+	text : address,
 	height : 'auto',
-	width : deviceWidth / 2 - 35,
+	width : 'auto',
+	//width : deviceWidth / 2 - 35,
 	color : 'black'
 });
 /*// Adding contact label and value in contact horizontal view
@@ -217,18 +215,10 @@ myRows[3] = Ti.UI.createTableViewRow({
 myRows[3].add(contactLabel);
 myRows[3].add(contactValueLabel);
 
-/*var data = [{
-	title : "Order: 12345",
-	title : "Order: 12345"
-}, {
-	title : "Row 2",
-	title : "Row 5"
-}];*/
-
 var tableViewOrder = Titanium.UI.createTableView({
 	data : myRows,
 	height : tableHeight,
-//	height : Ti.UI.SIZE,
+	//	height : Ti.UI.SIZE,
 	separatorColor : 'transparent'
 });
 
@@ -236,7 +226,7 @@ var instructionLabel = Titanium.UI.createLabel({
 	top : 5,
 	left : 20,
 	height : 'auto',
-	width :deviceWidth - 25,
+	width : deviceWidth - 25,
 	text : 'Instructions:',
 	color : 'black'
 });
@@ -263,7 +253,8 @@ rejectButton.addEventListener('click', function(e) {
 		width : deviceWidth,
 		url : 'RejectOrderScreen.js',
 		layout : 'vertical',
-		orientationModes : [1]
+		orientationModes : [1],
+		modal : modalValue
 	});
 	rejectOrderWindow.open();
 });
@@ -280,7 +271,8 @@ startButton.addEventListener('click', function(e) {
 		backgroundColor : 'white',
 		width : deviceWidth,
 		url : 'EditOrderScreen.js',
-		orientationModes : [1]
+		orientationModes : [1],
+		modal : modalValue
 	});
 	editOrderWindow.open();
 });

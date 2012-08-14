@@ -126,7 +126,8 @@ saveButton.addEventListener('click', function(e) {
 		backgroundColor : 'white',
 		width : deviceWidth,
 		url : 'TripDetailScreen.js',
-		orientationModes : [1]
+		orientationModes : [1],
+		modal : modalValue
 	});
 
 	tripDetailWindow.open();

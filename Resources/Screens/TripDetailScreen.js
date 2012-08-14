@@ -2,11 +2,7 @@ Titanium.include('Constants.js');
 
 // To get current window
 var tripDetailWindow = Ti.UI.currentWindow;
-if (platform == 'android') {
-	tripDetailWindow.addEventListener('android:back', function(e) {
-		tripDetailWindow.close();
-	});
-}
+
 // Heading View
 var tripDetailHeading = Titanium.UI.createView({
 	top : 0,
@@ -67,16 +63,11 @@ try {
 	}
 	var orderTableRows = database.execute('SELECT * FROM Order_Table WHERE tripRefId = "' + tripRefIdFromTripRow + '"');
 	var arrayLength = orderTableRows.rowCount;
+	var orderNumber = new Array();
 	var i = 0;
 	//	for (var i = 0; i < arrayLength; i++) {
 	while (orderTableRows.isValidRow()) {
-		/*var tripDetailVerticalView = Titanium.UI.createView({
-			height : 100,
-			layout : 'vertical',
-			top : 0,
-			left : tableLeftSpace,
-			width : deviceWidth * 80 / 100
-		});*/
+
 		var orderLabel = Titanium.UI.createLabel({
 			top : 0,
 			height : 25,
@@ -88,6 +79,7 @@ try {
 			color : 'black',
 			width : tripDetailLabelWidth
 		});
+		orderNumber[i] = orderTableRows.fieldByName('orderNo');
 		var companyLabel = Titanium.UI.createLabel({
 			top : 20,
 			height : 25,
@@ -143,13 +135,12 @@ try {
 		datas[i] = Ti.UI.createTableViewRow({
 			selectedBackgroundColor : 'transparent',
 			className : i,
-			//	hasDetail : true,
 			height : 'auto',
 			leftImage : titaniumLogo,
 			rightImage : '/images/expander_ic_minimized.png'
 		});
-	//	datas[i].add(tripDetailVerticalView)
-		
+		//	datas[i].add(tripDetailVerticalView)
+
 		datas[i].add(orderLabel)
 		datas[i].add(companyLabel)
 		datas[i].add(addressLabel)
@@ -157,12 +148,14 @@ try {
 
 		// Open View Order Screen on click of TableViewRow
 		datas[i].addEventListener('click', function(e) {
+			var dd = orderNumber[e.index];
 			var viewOrderWindow = Titanium.UI.createWindow({
 				backgroundColor : 'white',
 				width : deviceWidth,
 				url : 'ViewOrderScreen.js',
 				orientationModes : [1],
-				//	ddata : datas[i].data
+				modal : modalValue,
+				data : dd
 			});
 			viewOrderWindow.open();
 		});
@@ -174,104 +167,7 @@ try {
 } catch(err) {
 	alert("Error " + err);
 }
-/*var returnData = tripDetailWindow.data;
-var orderArray = returnData.d.messageData.trip.order;
-var arrayLength = orderArray.length;
-var orderArrayToPass = new Array();
-for (var i = 0; i < arrayLength; i++) {
 
-orderArrayToPass[i] = orderArray[i];
-var tripDetailVerticalView = Titanium.UI.createView({
-height : 100,
-layout : 'vertical',
-top : 0,
-left : tableLeftSpace,
-width : deviceWidth * 80 / 100
-});
-var orderLabel = Titanium.UI.createLabel({
-top : 0,
-height : 25,
-left : 0,
-text : 'Order: ' + orderArray[i].orderNo,
-ellipsize : true,
-wordWrap : false,
-color : 'black',
-width : tripDetailLabelWidth
-});
-var companyLabel = Titanium.UI.createLabel({
-top : 0,
-height : 25,
-left : 0,
-text : orderArray[i].custName,
-ellipsize : true,
-wordWrap : false,
-color : 'black',
-width : tripDetailLabelWidth
-});
-var addressLabel = Titanium.UI.createLabel({
-top : 0,
-height : 25,
-left : 0,
-text : orderArray[i].addr1,
-ellipsize : true,
-wordWrap : false,
-color : 'black',
-width : tripDetailLabelWidth
-});
-var eta = orderArray[i].eta;
-var subEta = eta.substring(6, eta.length - 2);
-var d = new Date(parseInt(subEta));
-var hours = d.getHours();
-var minutes = d.getMinutes();
-//var seconds = d.getSeconds();
-var str = "AM";
-if (hours > 12) {
-hours = hours - 12;
-str = "PM";
-}
-var time = hours + ":" + minutes + " " + str;
-//alert(time);
-var timeLabel = Titanium.UI.createLabel({
-top : 0,
-height : 25,
-left : 0,
-text : 'ETA: ' + time,
-ellipsize : true,
-wordWrap : false,
-color : 'black',
-width : tripDetailLabelWidth
-});
-
-tripDetailVerticalView.add(orderLabel);
-tripDetailVerticalView.add(companyLabel);
-tripDetailVerticalView.add(addressLabel);
-tripDetailVerticalView.add(timeLabel);
-
-// TableViewRow to add rows in table
-datas[i] = Ti.UI.createTableViewRow({
-selectedBackgroundColor : 'transparent',
-className : i,
-//	hasDetail : true,
-height : 'auto',
-leftImage : titaniumLogo,
-rightImage : '/images/expander_ic_minimized.png'
-});
-datas[i].add(tripDetailVerticalView)
-
-// Open View Order Screen on click of TableViewRow
-datas[i].addEventListener('click', function(e) {
-var dd = orderArrayToPass[e.index];
-var viewOrderWindow = Titanium.UI.createWindow({
-backgroundColor : 'white',
-width : deviceWidth,
-url : 'ViewOrderScreen.js',
-orientationModes : [1],
-//	ddata : datas[i].data
-ddata : dd
-});
-viewOrderWindow.open();
-});
-}*/
 
 //tripDetailScrollView.add(tripDetailHeading);
 

@@ -73,7 +73,7 @@ var itemLabel = Titanium.UI.createLabel({
 	top : 10,
 	left : 0,
 	text : 'Items',
-	height :'auto',
+	height : 'auto',
 	width : deviceWidth / 2 - 20,
 	color : 'black'
 });
@@ -156,7 +156,7 @@ var signatureVerticalView = Titanium.UI.createView({
 });
 var signedLabel = Titanium.UI.createLabel({
 	top : 18,
-	height:'auto',
+	height : 'auto',
 	text : '(SIGNED)',
 	color : 'black',
 	//	width : deviceWidth / 3,
@@ -177,13 +177,13 @@ var signatureValueButton = Titanium.UI.createButton({
 	height : buttonHeightForAll
 });
 
-
 // To open Signature form
 signatureValueButton.addEventListener('click', function(e) {
 	var signatureFormWindow = Titanium.UI.createWindow({
 		backgroundColor : 'white',
 		width : deviceWidth,
-		url : 'SignatureForm.js'
+		url : 'SignatureForm.js',
+		modal : modalValue
 	});
 	signatureFormWindow.open();
 });
@@ -203,14 +203,7 @@ var noIcon = Titanium.UI.createImageView({
 // To delete digital Sign saved in store
 noIcon.addEventListener('click', function(e) {
 	digitalSign.image = '';
-	//	var imageFile2 = Ti.Filesystem.getFile('file:///store/').exists()
-	//               ? Ti.Filesystem.getFile('file:///store/', 'Painting-1.png')
-	//               : Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'Painting-1.png');
 	imageFile.deleteFile();
-	//	imageFile = null;
-
-	//	signatureVerticalView.remove(digitalSign);
-	//	signatureVerticalView.add(signedLabel);
 });
 
 signatureHorizontalView.add(signatureLabel);
@@ -228,35 +221,9 @@ saveButtonEditOrder.addEventListener('click', function(e) {
 
 });
 
-
-
 var datasForEditOrder = [];
 for (var i = 0; i < 5; i++) {
 
-	/*var editOrderItemView = Titanium.UI.createView({
-		width : deviceWidth - 20,
-		height : 50,
-		layout : 'horizontal',
-		top : 0,
-		borderColor : 'black',
-		borderWidth : 1,
-		backgroundColor : 'gray'
-	});
-
-	var icon = Titanium.UI.createImageView({
-		image : '/images/tick-mark-yes.png',
-		height : 30,
-		width : 30,
-		left : 20,
-		top : 10
-	});*/
-	/*var editOrderVerticalView = Titanium.UI.createView({
-		height : 50,
-		layout : 'vertical',
-		top : 0,
-		left : 15,
-		width : deviceWidth - 125
-	});*/
 	var orderLabel = Titanium.UI.createLabel({
 		top : 0,
 		left : leftSpaceForEditOrder,
@@ -275,14 +242,6 @@ for (var i = 0; i < 5; i++) {
 	//editOrderVerticalView.add(orderLabel);
 	//editOrderVerticalView.add(companyLabel);
 
-	/*var arrowIcon = Titanium.UI.createImageView({
-		//	image : '/images/arrow.png',
-		image : '/images/expander_ic_minimized.png',
-		height : 30,
-		width : 30,
-		top : 10
-	});*/
-
 	//editOrderItemView.add(icon);
 	//editOrderItemView.add(tripDetailVerticalView);
 	//editOrderItemView.add(arrowIcon);
@@ -290,35 +249,35 @@ for (var i = 0; i < 5; i++) {
 	datasForEditOrder[i] = Ti.UI.createTableViewRow({
 		selectedBackgroundColor : 'transparent',
 		className : i,
-	//	hasDetail : true,
 		leftImage : '/images/tick-mark-yes_small.png',
-		rightImage :'/images/expander_ic_minimized_small.png',
+		rightImage : '/images/expander_ic_minimized_small.png',
 		backgroundColor : 'gray',
 		color : 'white'
 	});
 	//datasForEditOrder[i].add(editOrderVerticalView)
-	
+
 	datasForEditOrder[i].add(orderLabel)
 	datasForEditOrder[i].add(companyLabel)
-	
+
 	datasForEditOrder[i].addEventListener('click', function(e) {
 		var editItemWindow = Titanium.UI.createWindow({
 			backgroundColor : 'white',
 			width : deviceWidth,
 			url : 'EditItemScreen.js',
-			orientationModes : [1]
+			orientationModes : [1],
+			modal : modalValue
 		});
 
 		editItemWindow.open();
 	});
 
-//	scrollViewForEditOrder.add(editOrderItemView);
+	//	scrollViewForEditOrder.add(editOrderItemView);
 }
 
 var editOrderTable = Ti.UI.createTableView({
 	data : datasForEditOrder,
 	height : 250,
-//	height : 'auto',
+	//	height : 'auto',
 	width : deviceWidth - 20,
 	borderColor : 'black',
 	borderWidth : 1
@@ -336,26 +295,13 @@ scrollViewForEditOrder.add(saveButtonEditOrder);
 editOrderWindow.add(editOrderViewHeading);
 editOrderWindow.add(scrollViewForEditOrder);
 
-
 // To get digital sign from store on focus event
 editOrderWindow.addEventListener('focus', function(e) {
-	//var imageFile1 = Ti.Filesystem.getFile('file:///store/').exists()
-	//            ? Ti.Filesystem.getFile('file:///store/', 'Painting-1.png')
-	//            : Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'Painting-1.png');
-	/* if(imageFile != null)
-	{*/
-	//	alert(imageFile);
-
 	if (platform == 'android') {
 		var img = imageFile.read();
 		digitalSign.image = img;
-	}
-	else
-	{
+	} else {
 		Ti.Media.openPhotoGallery(Ti.Media.MEDIA_TYPE_PHOTO);
 	}
-	//		signatureVerticalView.remove(signedLabel);
-
-	/*	}*/
 
 });

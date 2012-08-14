@@ -49,6 +49,7 @@ var headingEditItem = Titanium.UI.createLabel({
 
 editItemViewHeading.add(buttonBackEditItem);
 editItemViewHeading.add(headingEditItem);
+
 // Scroll View to add full content of screen
 var scrollViewForEditItem = Titanium.UI.createScrollView({
 	contentWidth : 'auto',

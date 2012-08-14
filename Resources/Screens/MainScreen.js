@@ -2,11 +2,7 @@ Titanium.include('Constants.js');
 
 // To get current window
 var win = Ti.UI.currentWindow;
-if (platform == 'android') {
-	win.addEventListener('android:back', function(e) {
-		win.close();
-	});
-}
+
 // To add Start, View and End Trip Button
 var buttonViewMainScreen = Titanium.UI.createView({
 	layout : 'vertical'
@@ -23,7 +19,8 @@ startTripButton.addEventListener('click', function(e) {
 	var startWindow = Titanium.UI.createWindow({
 		backgroundColor : 'white',
 		width : deviceWidth,
-		url : 'StartScreen.js'
+		url : 'StartScreen.js',
+		modal : modalValue
 	});
 
 	startWindow.open();
@@ -50,7 +47,8 @@ viewTripButton.addEventListener('click', function(e) {
 				backgroundColor : 'white',
 				width : deviceWidth,
 				url : 'TripDetailScreen.js',
-				orientationModes : [1]
+				orientationModes : [1],
+				modal : modalValue
 			});
 			tripDetailWindow.open();
 		}
@@ -68,7 +66,7 @@ var endTripButton = Titanium.UI.createButton({
 	height : 70,
 	width : deviceWidth / 2
 });
-//
+
 endTripButton.addEventListener('click', function(e) {
 	try {
 		var database = Ti.Database.install('/database/GoRoamPODDB.sqlite', 'GoRoamPODDB');
@@ -84,10 +82,6 @@ endTripButton.addEventListener('click', function(e) {
 			db.execute('DELETE FROM  Load_Table');
 			db.execute('DELETE FROM  Load_Detail_Table');
 			alert('Your trip has been ended successfully.')
-			/*	Ti.App.Properties.removeProperty("CompanyCode");
-			 Ti.App.Properties.removeProperty("UserName");
-			 Ti.App.Properties.removeProperty("Password");
-			 Ti.App.Properties.removeProperty("AutoLogin");*/
 		}
 		tripRow.close();
 		database.close();
@@ -122,7 +116,8 @@ syncLabel.addEventListener('click', function(e) {
 	var syncWindow = Titanium.UI.createWindow({
 		backgroundColor : 'white',
 		width : deviceWidth,
-		url : 'SyncScreen.js'
+		url : 'SyncScreen.js',
+		modal : modalValue
 	});
 
 	syncWindow.open();
@@ -147,25 +142,13 @@ settingsLabel.addEventListener('click', function(e) {
 		backgroundColor : 'white',
 		width : deviceWidth,
 		url : 'SettingsScreen.js',
-
+		modal : modalValue
 	});
 
 	settingsWindow.open();
 
 });
-/*try {
- var database = Ti.Database.install('/database/GoRoamPODDB.sqlite', 'GoRoamPODDB');
- var tripRow = database.execute('SELECT * FROM Trip_Table');
- if (tripRow.rowCount < 1) {
- viewTripButton.enabled = false;
- endTripButton.enabled = false;
- } else {
- viewTripButton.enabled = true;
- endTripButton.enabled = true;
- }
- } catch(err) {
- alert(err);
- }*/
+
 
 tabGroupHorizontalView.add(syncLabel);
 tabGroupHorizontalView.add(settingsLabel);
@@ -176,4 +159,8 @@ buttonViewMainScreen.add(endTripButton);
 
 win.add(buttonViewMainScreen);
 win.add(tabGroupHorizontalView);
+
+/*setInterval(function(e){
+	Ti.API.info('In thread');
+},100000);*/
 

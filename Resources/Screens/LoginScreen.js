@@ -55,8 +55,7 @@ var userNameLabel = Titanium.UI.createLabel({
 	height : 40,
 	text : 'User Name',
 	width : deviceWidth / 2 - 20,
-	color : 'black',
-	//	font:{fontSize:21,fontFamily:'Helvetica Neue'},
+	color : 'black'
 });
 
 var userNameTF = Titanium.UI.createTextField({

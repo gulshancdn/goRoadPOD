@@ -79,7 +79,6 @@ function listTripsCallback(response, statusCode, showInd) {
 }
 
 function startTripCallback(response, statusCode, showInd) {
-	Ti.API.info(response);
 	if ((response != null && response.trim().length > 0) || statusCode == '200') {
 
 		var parsedData = JSON.parse(response);
@@ -217,6 +216,7 @@ function startTripCallback(response, statusCode, showInd) {
 						width : deviceWidth,
 						url : 'TripDetailScreen.js',
 						orientationModes : [1],
+						modal : modalValue
 						//	data : parsedData
 					});
 					tripDetailWindow.open();
